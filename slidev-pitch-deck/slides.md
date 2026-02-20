@@ -253,12 +253,14 @@ flowchart TB
     A[Flutter<br/>Cross-Platform UI] --> B[Firebase Auth]
     A --> C[Firestore<br/>Database]
     A --> D[Cloud Functions]
-    D --> E[Gemini 1.5 Flash<br/>AI Engine]
+    D --> ADK[Google ADK<br/>Agent Framework]
+    ADK --> E[Gemini 2.5 Flash<br/>AI Engine]
     
     style A fill:#3b82f6,stroke:#1e40af,color:#fff
     style B fill:#dc2626,stroke:#b91c1c,color:#fff
     style C fill:#dc2626,stroke:#b91c1c,color:#fff
     style D fill:#dc2626,stroke:#b91c1c,color:#fff
+    style ADK fill:#7c3aed,stroke:#5b21b6,color:#fff
     style E fill:#059669,stroke:#047857,color:#fff
 ```
 
@@ -274,7 +276,8 @@ flowchart TB
 | **Firebase Auth** | Secure OAuth authentication |
 | **Firestore** | Real-time data sync |
 | **Cloud Functions** | Scalable serverless backend |
-| **Gemini 1.5 Flash** | Context-aware AI reasoning |
+| **Google ADK** | Agent orchestration & streaming |
+| **Gemini 2.5 Flash** | Context-aware AI reasoning |
 | **Google Play** | Distribution ready |
 
 <div class="mt-6 p-4 bg-gradient-to-br from-green-500/20 to-blue-500/20 rounded-lg border-2 border-green-400 text-center">
