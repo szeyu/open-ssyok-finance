@@ -1,0 +1,9 @@
+ssyok-Finance/
+contexts/
+
+# Backend build artifacts
+backend/node_modules/
+backend/lib/
+backend/.env
+backend/.env.local
+backend/.env.*.local

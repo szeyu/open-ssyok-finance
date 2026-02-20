@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "908117969556",
+    "project_id": "smart-bloom-350004",
+    "storage_bucket": "smart-bloom-350004.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:908117969556:android:16fda26496ee56fa8c8281",
+        "android_client_info": {
+          "package_name": "com.ssyok.frontend"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "908117969556-6dlfhqa2osatl0qaftfenshia6bo5hpj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBaYdseT-Ncf2zHesKm7OiFD-eAEZZeDBk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "908117969556-6dlfhqa2osatl0qaftfenshia6bo5hpj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
