@@ -6,56 +6,86 @@ import 'package:ssyok_finance/features/chat/domain/prompt_template.dart';
 import 'package:ssyok_finance/features/onboarding/presentation/providers/profile_provider.dart';
 import 'package:ssyok_finance/features/plan/presentation/providers/plan_providers.dart';
 
-/// Provider for ChatRepository instance
+// ── Infrastructure providers ──────────────────────────────────────────────
+
 final chatRepositoryProvider = Provider<ChatRepository>((ref) {
   return ChatRepository();
 });
 
-/// State for chat messages
+// ── State ──────────────────────────────────────────────────────────────────
+
+/// Maximum messages (user + assistant) per in-memory conversation.
+/// When hit, the input locks and the user must start a new chat manually.
+const int kMaxConversationTurns = 50;
+
 class ChatState {
   final List<ChatMessage> messages;
   final bool isLoading;
   final String? error;
 
-  ChatState({this.messages = const [], this.isLoading = false, this.error});
+  const ChatState({
+    this.messages = const [],
+    this.isLoading = false,
+    this.error,
+  });
+
+  /// True when the 50-turn limit has been reached.
+  bool get isAtTurnLimit => messages.length >= kMaxConversationTurns;
 
   ChatState copyWith({
     List<ChatMessage>? messages,
     bool? isLoading,
     String? error,
+    bool clearError = false,
   }) {
     return ChatState(
       messages: messages ?? this.messages,
       isLoading: isLoading ?? this.isLoading,
-      error: error,
+      error: clearError ? null : (error ?? this.error),
     );
   }
 }
 
-/// Chat state notifier
-class ChatNotifier extends StateNotifier<ChatState> {
-  final ChatRepository _chatRepository;
-  final Ref _ref;
+// ── Notifier (Riverpod 2.0) ────────────────────────────────────────────────
 
-  ChatNotifier(this._chatRepository, this._ref) : super(ChatState());
+class ChatNotifier extends Notifier<ChatState> {
+  @override
+  ChatState build() => const ChatState();
 
-  /// Send a message and stream the AI response back chunk-by-chunk.
+  // ── Messaging ──────────────────────────────────────────────────────────
+
+  /// Streams the AI response chunk-by-chunk; state is in-memory only.
   Future<void> sendMessage(String content) async {
-    // Add user message
+    final user = ref.read(authStateProvider).value;
+    if (user == null) {
+      state = state.copyWith(error: 'User not authenticated');
+      return;
+    }
+
+    // Block at 50-turn limit — user must open a new session manually.
+    if (state.isAtTurnLimit) {
+      state = state.copyWith(
+        error:
+            'This conversation has reached the 50-message limit. '
+            'Tap the history icon to start a new chat.',
+      );
+      return;
+    }
+
+    // Append the user message immediately.
     final userMessage = ChatMessage(
       id: DateTime.now().millisecondsSinceEpoch.toString(),
       role: ChatRole.user,
       content: content,
       timestamp: DateTime.now(),
     );
-
     state = state.copyWith(
       messages: [...state.messages, userMessage],
       isLoading: true,
-      error: null,
+      clearError: true,
     );
 
-    // Add a placeholder assistant message that will grow as chunks arrive
+    // Add an empty placeholder for the streaming AI reply.
     final assistantId = '${DateTime.now().millisecondsSinceEpoch}_ai';
     final placeholder = ChatMessage(
       id: assistantId,
@@ -63,44 +93,36 @@ class ChatNotifier extends StateNotifier<ChatState> {
       content: '',
       timestamp: DateTime.now(),
     );
-
     state = state.copyWith(messages: [...state.messages, placeholder]);
 
     try {
-      final user = _ref.read(authStateProvider).value;
-      if (user == null) {
-        throw Exception('User not authenticated');
-      }
-
       final userData = await _gatherUserData();
 
-      // Stream chunks from the backend SSE endpoint
-      await for (final chunk in _chatRepository.streamMessage(
-        userId: user.uid,
-        messages:
-            // Exclude the empty placeholder from history sent to the server
-            state.messages.where((m) => m.id != assistantId).toList(),
-        userData: userData,
-      )) {
-        // Replace only the last (assistant) message by appending the chunk
+      await for (final chunk
+          in ref
+              .read(chatRepositoryProvider)
+              .streamMessage(
+                userId: user.uid,
+                messages: state.messages
+                    .where((m) => m.id != assistantId)
+                    .toList(),
+                userData: userData,
+              )) {
         final updated = state.messages.map((m) {
           if (m.id == assistantId) {
             return m.copyWith(content: m.content + chunk);
           }
           return m;
         }).toList();
-
         state = state.copyWith(messages: updated);
       }
 
       state = state.copyWith(isLoading: false);
     } catch (e) {
-      // If nothing was streamed, remove the empty placeholder
+      // Remove empty placeholder on error so UI stays clean.
       final msgs = state.messages;
-      final lastMsg = msgs.isNotEmpty ? msgs.last : null;
-      if (lastMsg != null &&
-          lastMsg.id == assistantId &&
-          lastMsg.content.isEmpty) {
+      final last = msgs.isNotEmpty ? msgs.last : null;
+      if (last != null && last.id == assistantId && last.content.isEmpty) {
         state = state.copyWith(
           messages: msgs.sublist(0, msgs.length - 1),
           isLoading: false,
@@ -112,37 +134,28 @@ class ChatNotifier extends StateNotifier<ChatState> {
     }
   }
 
-  /// Clear chat history
-  void clearChat() {
-    state = ChatState();
-  }
+  // ── Session management ─────────────────────────────────────────────────
 
-  /// Dismiss the current error without clearing chat history
-  void clearError() {
-    state = state.copyWith(error: null);
-  }
+  /// Resets to a blank in-memory chat session.
+  void newConversation() => state = const ChatState();
 
-  /// Send pre-filled prompt
+  /// Clears the current error banner without affecting messages.
+  void clearError() => state = state.copyWith(clearError: true);
+
+  /// Sends a pre-filled prompt from a PromptTemplate key.
   Future<void> sendPrompt(String promptKey) async {
-    final prompt = PromptTemplate.getByKey(promptKey);
-    await sendMessage(prompt);
+    await sendMessage(PromptTemplate.getByKey(promptKey));
   }
 
-  /// Gather user data for context
+  // ── Private helpers ────────────────────────────────────────────────────
+
   Future<Map<String, dynamic>> _gatherUserData() async {
-    final profileAsync = _ref.read(userProfileProvider);
-    final assetsAsync = _ref.read(assetsProvider);
-    final debtsAsync = _ref.read(debtsProvider);
-    final goalsAsync = _ref.read(goalsProvider);
-    final expensesAsync = _ref.read(expensesProvider);
+    final profile = ref.read(userProfileProvider).value;
+    final assets = ref.read(assetsProvider).value ?? [];
+    final debts = ref.read(debtsProvider).value ?? [];
+    final goals = ref.read(goalsProvider).value ?? [];
+    final expenses = ref.read(expensesProvider).value ?? [];
 
-    final profile = profileAsync.value;
-    final assets = assetsAsync.value ?? [];
-    final debts = debtsAsync.value ?? [];
-    final goals = goalsAsync.value ?? [];
-    final expenses = expensesAsync.value ?? [];
-
-    // Build context string
     final context = PromptTemplate.buildContext(
       profile: profile?.toJson() ?? {},
       assets: assets.map((a) => a.toJson()).toList(),
@@ -162,8 +175,9 @@ class ChatNotifier extends StateNotifier<ChatState> {
   }
 }
 
-/// Provider for chat state
-final chatProvider = StateNotifierProvider<ChatNotifier, ChatState>((ref) {
-  final repository = ref.watch(chatRepositoryProvider);
-  return ChatNotifier(repository, ref);
-});
+// ── Providers ──────────────────────────────────────────────────────────────
+
+/// Riverpod 2.0 NotifierProvider (replaces old StateNotifierProvider).
+final chatProvider = NotifierProvider<ChatNotifier, ChatState>(
+  ChatNotifier.new,
+);

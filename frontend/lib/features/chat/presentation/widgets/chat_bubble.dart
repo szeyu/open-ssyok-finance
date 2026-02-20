@@ -6,10 +6,7 @@ import 'package:intl/intl.dart';
 class ChatBubble extends StatelessWidget {
   final ChatMessage message;
 
-  const ChatBubble({
-    super.key,
-    required this.message,
-  });
+  const ChatBubble({super.key, required this.message});
 
   @override
   Widget build(BuildContext context) {
@@ -19,8 +16,9 @@ class ChatBubble extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(bottom: 16),
       child: Row(
-        mainAxisAlignment:
-            isUser ? MainAxisAlignment.end : MainAxisAlignment.start,
+        mainAxisAlignment: isUser
+            ? MainAxisAlignment.end
+            : MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           if (!isUser) ...[
@@ -36,8 +34,9 @@ class ChatBubble extends StatelessWidget {
           ],
           Flexible(
             child: Column(
-              crossAxisAlignment:
-                  isUser ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+              crossAxisAlignment: isUser
+                  ? CrossAxisAlignment.end
+                  : CrossAxisAlignment.start,
               children: [
                 Container(
                   padding: const EdgeInsets.symmetric(
@@ -58,9 +57,7 @@ class ChatBubble extends StatelessWidget {
                   child: isUser
                       ? Text(
                           message.content,
-                          style: TextStyle(
-                            color: theme.colorScheme.onPrimary,
-                          ),
+                          style: TextStyle(color: theme.colorScheme.onPrimary),
                         )
                       : MarkdownBody(
                           data: message.content,
@@ -107,7 +104,7 @@ class ChatBubble extends StatelessWidget {
     );
   }
 
-  String _formatTime(DateTime timestamp) {
+  static String _formatTime(DateTime timestamp) {
     final now = DateTime.now();
     final difference = now.difference(timestamp);
 

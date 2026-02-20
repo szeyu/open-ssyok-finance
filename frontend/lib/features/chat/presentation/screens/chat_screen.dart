@@ -20,7 +20,6 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
   @override
   void initState() {
     super.initState();
-    // Send initial prompt if provided
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (widget.initialPromptKey != null && !_hasInitialized) {
         _hasInitialized = true;
@@ -86,7 +85,7 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
               icon: const Icon(Icons.delete_outline),
               tooltip: 'Clear chat',
               onPressed: () {
-                ref.read(chatProvider.notifier).clearChat();
+                ref.read(chatProvider.notifier).newConversation();
               },
             ),
         ],
@@ -184,8 +183,40 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
               ),
             ),
 
+          // Turn limit banner (shown instead of error, non-dismissible)
+          if (chatState.isAtTurnLimit)
+            Container(
+              margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+              decoration: BoxDecoration(
+                color: theme.colorScheme.tertiaryContainer,
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Row(
+                children: [
+                  Icon(
+                    Icons.lock_outline,
+                    size: 18,
+                    color: theme.colorScheme.onTertiaryContainer,
+                  ),
+                  const SizedBox(width: 10),
+                  Expanded(
+                    child: Text(
+                      'This chat has reached 50 messages. Tap 🕐 above to start a new conversation.',
+                      style: theme.textTheme.bodySmall?.copyWith(
+                        color: theme.colorScheme.onTertiaryContainer,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
           // Input area
-          _buildInputArea(theme, chatState.isLoading),
+          _buildInputArea(
+            theme,
+            chatState.isLoading || chatState.isAtTurnLimit,
+          ),
         ],
       ),
     );

@@ -171,7 +171,7 @@ final goRouterProvider = Provider<GoRouter>((ref) {
       GoRoute(
         path: '/learn/:id',
         pageBuilder: (context, state) => _slideUpPage(
-          key: state.pageKey, 
+          key: state.pageKey,
           child: ArticleDetailScreen(articleId: state.pathParameters['id']!),
         ),
       ),
