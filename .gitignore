@@ -1,9 +1,22 @@
 ssyok-Finance/
 contexts/
 
-# Backend build artifacts
+# Backend
 backend/node_modules/
 backend/lib/
 backend/.env
 backend/.env.local
 backend/.env.*.local
+
+# Slidev
+slidev-pitch-deck/node_modules/
+slidev-pitch-deck/dist/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp

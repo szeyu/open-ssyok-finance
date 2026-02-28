@@ -4,13 +4,19 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-**ssyok Finance** is a financial companion app for young Malaysians, entered into KitaHack 2026. The project consists of three main components:
+**ssyok Finance** is an AI-powered financial companion app for young Malaysians, entered into KitaHack 2026.
 
-1. **Frontend** (`frontend/`) - Flutter mobile app (migration target from React Native)
-2. **Backend** (`backend/`) - Node.js + Firebase Cloud Functions
+- **ssyok Finance** — the product name (closed source, full production app)
+- **Open ssyok Finance** — this repository (open source, submitted for KitaHack)
+
+The project consists of three main components:
+
+1. **Frontend** (`frontend/`) - Flutter mobile app
+2. **Backend** (`backend/`) - Node.js + Firebase Cloud Functions + Gemini AI agent
 3. **Pitch Deck** (`slidev-pitch-deck/`) - Slidev presentation for Demo Day
 
 A legacy React Native app exists in `ssyok-Finance/` (archived reference only, do not modify).
+A local-only knowledge base exists in `contexts/` (gitignored, not tracked).
 
 ## Architecture
 
@@ -70,28 +76,25 @@ cd slidev-pitch-deck && npm run dev
 ## Code Structure
 
 ### Frontend (`frontend/`)
-When creating the Flutter app, follow this structure:
 ```
 lib/
 ├── main.dart
-├── app/              # App-level config (theme, routes)
-├── features/         # Feature-based modules (onboarding, dashboard, insights)
+├── app/              # App-level config (theme, router, animations)
+├── features/         # Feature-based modules
 │   └── [feature]/
-│       ├── presentation/   # Screens, widgets
+│       ├── presentation/   # Screens, widgets, providers
 │       ├── domain/         # Business logic, models
 │       └── data/           # Repositories, data sources
-├── core/             # Shared utilities, constants
-└── shared/           # Reusable UI components
+├── core/             # Shared utilities, services, constants
+└── shared/           # Reusable UI components (Pressable, AnimatedListItem)
 ```
 
 ### Backend (`backend/`)
-Expected structure for Firebase Functions:
 ```
 src/
-├── index.ts          # Function exports
-├── routes/           # API endpoint handlers
-├── services/         # Business logic (Gemini integration)
-└── middleware/       # Auth verification, validation
+├── index.ts          # Cloud Function exports (chat endpoint)
+├── agent.ts          # Gemini AI agent (Google ADK)
+└── types.ts          # TypeScript type definitions
 ```
 
 ### Legacy App Reference (`ssyok-Finance/`)
@@ -165,13 +168,14 @@ Use these specialized skills for specific tasks:
 - **Project number**: 908117969556
 - **Firestore bucket**: `smart-bloom-350004.firebasestorage.app`
 - Firebase config already initialised — `frontend/lib/firebase_options.dart` and `frontend/android/app/google-services.json` are present
+- `.firebaserc` at root is configured with `default: smart-bloom-350004`
 
 ### Notes
 1. Frontend: FlutterFire already configured (`flutterfire configure` was run)
-2. Backend: Firebase Functions with TypeScript
+2. Backend: Firebase Functions with TypeScript + Google ADK
 3. Database: Firestore in native mode (not Datastore)
 4. Regions: Use `asia-southeast1` (Singapore) for optimal latency in Malaysia
-5. Deploy alias: run `firebase use smart-bloom-350004` if the CLI asks for a project
+5. `.firebaserc` is already set — no need to run `firebase use` manually
 
 ## Testing Strategy
 

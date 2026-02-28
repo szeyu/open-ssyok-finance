@@ -14,9 +14,9 @@ class ChatRepository {
           baseUrl ??
           const String.fromEnvironment(
             'BACKEND_URL',
-            // demo-no-project matches the Firebase emulator's auto-detected project ID
+            // Must match the project ID in .firebaserc for emulator mode
             defaultValue:
-                'http://localhost:5001/demo-no-project/asia-southeast1',
+                'http://localhost:5001/smart-bloom-350004/asia-southeast1',
           );
 
   /// Stream chat response chunks from the backend SSE endpoint.
