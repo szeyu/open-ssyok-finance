@@ -1,5 +1,8 @@
-import { LlmAgent, InMemoryRunner, isFinalResponse, stringifyContent, StreamingMode } from '@google/adk';
-import { createUserContent } from '@google/genai';
+// Dynamic imports — @google/adk and @google/genai are loaded on first request,
+// not at module load time. This avoids the Firebase emulator's 10-second
+// function discovery timeout (the ADK dependency tree is too large to resolve
+// within that window).
+import type { InMemoryRunner } from '@google/adk';
 import { ChatMessage, UserData } from './types.js';
 
 const SYSTEM_INSTRUCTION = `You are ssyok Finance AI, a friendly and knowledgeable financial advisor for young Malaysians.
@@ -24,15 +27,30 @@ The user's complete financial profile will be provided at the start of each mess
 
 Always end with a concrete next step the user can take today.`;
 
-// Initialise agent once per cold start — reused across requests
-const agent = new LlmAgent({
-  name: 'ssyok_finance_advisor',
-  model: 'gemini-2.5-flash',
-  instruction: SYSTEM_INSTRUCTION,
-  description: 'Friendly Malaysian financial advisor with access to user financial data',
-});
+// Cached dynamic imports — loaded once, reused across requests.
+let _adk: typeof import('@google/adk') | null = null;
+let _genai: typeof import('@google/genai') | null = null;
+let _runner: InMemoryRunner | null = null;
 
-const runner = new InMemoryRunner({ agent });
+async function loadDeps() {
+  if (!_adk) _adk = await import('@google/adk');
+  if (!_genai) _genai = await import('@google/genai');
+  return { adk: _adk, genai: _genai };
+}
+
+async function getRunner(): Promise<InMemoryRunner> {
+  const { adk } = await loadDeps();
+  if (!_runner) {
+    const agent = new adk.LlmAgent({
+      name: 'ssyok_finance_advisor',
+      model: 'gemini-2.5-flash',
+      instruction: SYSTEM_INSTRUCTION,
+      description: 'Friendly Malaysian financial advisor with access to user financial data',
+    });
+    _runner = new adk.InMemoryRunner({ agent });
+  }
+  return _runner;
+}
 
 /**
  * Build the full message string combining financial profile, history and current question.
@@ -77,6 +95,8 @@ export async function* chatWithAgentStream({
 }): AsyncGenerator<string> {
   validateApiKey();
 
+  const { adk, genai } = await loadDeps();
+  const runner = await getRunner();
   const session = await runner.sessionService.createSession({
     appName: runner.appName,
     userId: 'user',
@@ -87,16 +107,16 @@ export async function* chatWithAgentStream({
   for await (const event of runner.runAsync({
     userId: session.userId,
     sessionId: session.id,
-    newMessage: createUserContent(fullMessage),
-    runConfig: { streamingMode: StreamingMode.SSE },
+    newMessage: genai.createUserContent(fullMessage),
+    runConfig: { streamingMode: adk.StreamingMode.SSE },
   })) {
-    const text = stringifyContent(event);
+    const text = adk.stringifyContent(event);
     if (!text) continue;
 
     if (event.partial) {
       // Streaming chunk — emit immediately
       yield text;
-    } else if (isFinalResponse(event)) {
+    } else if (adk.isFinalResponse(event)) {
       // Final event — emit and stop
       yield text;
       return;
@@ -118,6 +138,8 @@ export async function chatWithAgent({
 }): Promise<string> {
   validateApiKey();
 
+  const { adk, genai } = await loadDeps();
+  const runner = await getRunner();
   const session = await runner.sessionService.createSession({
     appName: runner.appName,
     userId: 'user',
@@ -130,10 +152,10 @@ export async function chatWithAgent({
   for await (const event of runner.runAsync({
     userId: session.userId,
     sessionId: session.id,
-    newMessage: createUserContent(fullMessage),
+    newMessage: genai.createUserContent(fullMessage),
   })) {
-    if (isFinalResponse(event)) {
-      finalResponse = stringifyContent(event) || '';
+    if (adk.isFinalResponse(event)) {
+      finalResponse = adk.stringifyContent(event) || '';
     }
   }
 

@@ -212,6 +212,31 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
               ),
             ),
 
+          // AI disclaimer
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
+            color: theme.colorScheme.surfaceContainerHighest
+                .withValues(alpha: 0.5),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  Icons.info_outline,
+                  size: 12,
+                  color: theme.colorScheme.onSurfaceVariant,
+                ),
+                const SizedBox(width: 6),
+                Text(
+                  'AI can make mistakes. Not a substitute for professional financial advice.',
+                  style: theme.textTheme.labelSmall?.copyWith(
+                    color: theme.colorScheme.onSurfaceVariant,
+                    fontSize: 10.5,
+                  ),
+                ),
+              ],
+            ),
+          ),
+
           // Input area
           _buildInputArea(
             theme,
