@@ -6,9 +6,9 @@ lineNumbers: false
 colorSchema: light
 transition: slide-left
 fonts:
-  sans: 'Inter'
-  serif: 'Merriweather'
-  mono: 'Fira Code'
+  sans: 'Plus Jakarta Sans'
+  serif: 'Playfair Display'
+  mono: 'JetBrains Mono'
 themeConfig:
   primary: '#10b981'
   secondary: '#3b82f6'
@@ -23,24 +23,32 @@ mdc: true
 layout: cover
 ---
 
-<div class="absolute inset-0 flex items-center justify-center" style="background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);">
+<div class="absolute inset-0 flex items-center justify-center" style="background: linear-gradient(160deg, #064e3b 0%, #065f46 30%, #10b981 100%);">
+
+<div class="absolute inset-0" style="background: radial-gradient(circle at 30% 70%, rgba(255,255,255,0.08) 0%, transparent 50%), radial-gradient(circle at 70% 30%, rgba(255,255,255,0.05) 0%, transparent 50%);"></div>
 
 <div class="text-center z-10">
 
-<div class="text-7xl font-bold text-white mb-8">
-💰 ssyok Finance
+<div class="text-8xl font-extrabold text-white mb-4" style="letter-spacing: -0.04em; line-height: 1;">
+ssyok Finance
 </div>
 
-<div class="text-3xl font-light text-white/90 mb-12">
+<div class="sf-divider mx-auto mb-6" style="width: 80px; height: 3px; background: rgba(255,255,255,0.4);"></div>
+
+<div class="text-2xl font-light text-white/80 mb-14" style="letter-spacing: 0.02em;">
 Your Hyper-Local AI Financial Companion
 </div>
 
-<div class="inline-block px-8 py-3 bg-white/20 backdrop-blur-lg rounded-full border-2 border-white/40">
-<div class="text-xl font-medium text-white">Team Hokkien Mee is Red</div>
+<div class="inline-block px-8 py-3 rounded-full border border-white/30" style="background: rgba(255,255,255,0.1); backdrop-filter: blur(12px);">
+<div class="text-lg font-semibold text-white" style="letter-spacing: 0.04em;">Team Hokkien Mee is Red</div>
 </div>
 
-<div class="mt-16 text-sm text-white/70">
-🎯 KitaHack 2026 • SDG 8.10
+<div class="mt-12 flex items-center justify-center gap-3 text-xs text-white/50 font-mono" style="letter-spacing: 0.08em;">
+<span>KITAHACK 2026</span>
+<span style="width: 4px; height: 4px; border-radius: 50%; background: rgba(255,255,255,0.3);"></span>
+<span>SDG 8, TARGET 8.10</span>
+<span style="width: 4px; height: 4px; border-radius: 50%; background: rgba(255,255,255,0.3);"></span>
+<span>DEMO DAY</span>
 </div>
 
 </div>
@@ -48,102 +56,165 @@ Your Hyper-Local AI Financial Companion
 </div>
 
 ---
-layout: statement
+layout: default
 transition: fade
 ---
 
-# 🎯 **SDG 8: Decent Work & Economic Growth**
+<div class="flex flex-col items-center justify-center h-full -mt-8">
 
-<div class="mt-12 text-center">
+<div class="pill pill--emerald mb-8 text-xs font-mono" style="letter-spacing: 0.08em;">UNITED NATIONS SUSTAINABLE DEVELOPMENT GOALS</div>
 
-## Target 8.10
+<h1 class="text-center text-5xl font-extrabold mb-2" style="letter-spacing: -0.04em;">
+SDG 8: Decent Work
+</h1>
+<h1 class="text-center text-5xl font-extrabold gradient-text" style="letter-spacing: -0.04em;">
+& Economic Growth
+</h1>
 
-<div class="text-xl mt-8 leading-relaxed px-16">
-"Strengthen the capacity of domestic financial institutions to encourage and expand <span class="text-green-400 font-bold">access to banking, insurance and financial services for all</span>."
+<div class="mt-10 max-w-2xl mx-auto">
+<div class="sf-quote text-lg" style="padding: 1.5rem 2rem;">
+Strengthen the capacity of domestic financial institutions to encourage and expand <span class="font-bold" style="color: var(--sf-emerald-deep);">access to banking, insurance and financial services for all</span>.
+<div class="text-right text-xs mt-3 not-italic font-mono" style="color: var(--sf-slate-soft);">— Target 8.10</div>
+</div>
 </div>
 
+<div class="mt-12 text-2xl font-extrabold" style="letter-spacing: -0.02em; color: var(--sf-slate);">
+Access is not the problem. <span class="gradient-text">Understanding is.</span>
 </div>
 
-<div class="mt-16 text-center text-2xl font-bold text-green-400">
-But what does "access" mean if people can't use it?
 </div>
 
 ---
-layout: fact
 transition: slide-up
 ---
 
-# 😰 **The Grim Reality**
+# The Grim Reality
 
-<div class="grid grid-cols-2 gap-5 mt-4">
+<div class="grid grid-cols-4 gap-4 mt-8">
 
-<div class="stat-box text-center p-4 bg-gradient-to-br from-red-500/20 to-orange-500/20 rounded-xl">
-<div class="text-4xl font-extrabold text-red-400">53,000+</div>
-<div class="text-sm mt-1 opacity-80">Youths in Debt (aged ≤30)</div>
-<div class="text-xs opacity-60">AKPK, March 2024</div>
+<div class="stat-card stat-card--danger animate-fade-up delay-1">
+<div class="stat-number" style="color: var(--sf-danger);">53K+</div>
+<div class="stat-label">Youths in Debt</div>
+<div class="stat-source">aged 30 and below</div>
+<div class="sf-divider"></div>
+<div class="stat-source"><a href="https://www.malaymail.com/news/malaysia/2024/10/01/under-30-and-drowning-in-debt-53000-young-adults-in-malaysia-owe-rm19b-as-credit-culture-soars/152230" target="_blank" style="color: var(--sf-slate-soft); font-size: 0.6rem;">AKPK via Malay Mail, Oct 2024</a></div>
 </div>
 
-<div class="stat-box text-center p-4 bg-gradient-to-br from-yellow-500/20 to-red-500/20 rounded-xl">
-<div class="text-4xl font-extrabold text-yellow-400">19%</div>
-<div class="text-sm mt-1 opacity-80">Meet Minimum Financial Literacy Score</div>
-<div class="text-xs opacity-60">OECD/INFE 2023 International Survey</div>
+<div class="stat-card stat-card--warning animate-fade-up delay-2">
+<div class="stat-number" style="color: var(--sf-amber);">59.1<span style="font-size: 1.2rem; font-weight: 600;">/100</span></div>
+<div class="stat-label">Financial Literacy Score</div>
+<div class="stat-source">a failing grade for Malaysia</div>
+<div class="sf-divider"></div>
+<div class="stat-source"><a href="https://www.thestar.com.my/business/business-news/2025/03/25/saving-remains-a-struggle-despite-financial-awareness" target="_blank" style="color: var(--sf-slate-soft); font-size: 0.6rem;">BNM FCI Survey 2024 (MYFLIC Index)</a></div>
 </div>
 
-<div class="stat-box text-center p-4 bg-gradient-to-br from-purple-500/20 to-red-500/20 rounded-xl">
-<div class="text-4xl font-extrabold text-purple-400">RM 1.9B</div>
-<div class="text-sm mt-1 opacity-80">Youth Debt Total</div>
-<div class="text-xs opacity-60">AKPK, March 2024</div>
+<div class="stat-card stat-card--purple animate-fade-up delay-3">
+<div class="stat-number" style="color: var(--sf-purple);">RM 1.9B</div>
+<div class="stat-label">Youth Debt Total</div>
+<div class="stat-source">combined outstanding</div>
+<div class="sf-divider"></div>
+<div class="stat-source"><a href="https://www.malaymail.com/news/malaysia/2024/10/01/under-30-and-drowning-in-debt-53000-young-adults-in-malaysia-owe-rm19b-as-credit-culture-soars/152230" target="_blank" style="color: var(--sf-slate-soft); font-size: 0.6rem;">AKPK via Malay Mail, Oct 2024</a></div>
 </div>
 
-<div class="stat-box text-center p-4 bg-gradient-to-br from-green-500/20 to-blue-500/20 rounded-xl">
-<div class="text-4xl font-extrabold text-green-400">97%</div>
-<div class="text-sm mt-1 opacity-80">Have Active Bank Accounts</div>
-<div class="text-xs opacity-60">BNM Financial Inclusion 2024</div>
+<div class="stat-card stat-card--success animate-fade-up delay-4">
+<div class="stat-number" style="color: var(--sf-emerald);">89%</div>
+<div class="stat-label">Have Bank Accounts</div>
+<div class="stat-source">access is solved</div>
+<div class="sf-divider"></div>
+<div class="stat-source"><a href="https://digitalfinance.worldbank.org/country/malaysia" target="_blank" style="color: var(--sf-slate-soft); font-size: 0.6rem;">World Bank Findex 2024</a></div>
 </div>
 
 </div>
 
-<div class="mt-6 text-center text-base italic opacity-80">
-"We're raising a generation that knows TikTok but not how to save."
+<div class="mt-8 text-center">
+<div class="sf-quote inline-block text-base max-w-lg">
+We gave people bank accounts but never taught them how to use them.
+</div>
 </div>
 
 ---
 layout: two-cols-header
 ---
 
-# 🔍 **The Gap: Access ≠ Understanding**
+# The Gap
+
+<div class="text-sm mt-1" style="color: var(--sf-slate-soft);">Access does not equal understanding</div>
 
 ::left::
 
-<div class="pitch-card text-center p-4 rounded-xl bg-blue-500/10 border border-blue-500/30 h-48 flex flex-col justify-center">
-<div class="text-4xl mb-3">📱</div>
-<div class="font-bold text-lg mb-2">Generic Apps</div>
-<div class="text-red-400 text-sm">✗ Too boring</div>
-<div class="text-red-400 text-sm">✗ Manual tracking</div>
-<div class="text-red-400 text-sm">✗ Foreign context</div>
+<div class="competitor-card flex flex-col items-center text-center h-44 justify-center mb-3">
+<div class="text-3xl mb-2">📱</div>
+<div class="font-bold text-base mb-3" style="color: var(--sf-slate);">Generic Apps</div>
+<div class="space-y-1">
+<div class="feature-tag feature-tag--fail">✗ Too boring</div>
+<div class="feature-tag feature-tag--fail">✗ Manual tracking</div>
+<div class="feature-tag feature-tag--fail">✗ Foreign context</div>
+</div>
 </div>
 
-<div class="pitch-card text-center p-4 rounded-xl bg-purple-500/10 border border-purple-500/30 h-48 flex flex-col justify-center mt-3">
-<div class="text-4xl mb-3">🏦</div>
-<div class="font-bold text-lg mb-2">Bank Apps</div>
-<div class="text-red-400 text-sm">✗ Too corporate</div>
-<div class="text-red-400 text-sm">✗ Intimidating</div>
-<div class="text-red-400 text-sm">✗ Selling products</div>
+<div class="competitor-card flex flex-col items-center text-center h-44 justify-center">
+<div class="text-3xl mb-2">🏦</div>
+<div class="font-bold text-base mb-3" style="color: var(--sf-slate);">Bank Apps</div>
+<div class="space-y-1">
+<div class="feature-tag feature-tag--fail">✗ Too corporate</div>
+<div class="feature-tag feature-tag--fail">✗ Intimidating</div>
+<div class="feature-tag feature-tag--fail">✗ Selling products</div>
+</div>
 </div>
 
 ::right::
 
-<div class="pitch-card text-center p-4 rounded-xl bg-gradient-to-br from-green-500/20 to-blue-500/20 border-2 border-green-400 h-full flex flex-col justify-center ml-6">
-<div class="text-5xl mb-6">🤖</div>
-<div class="font-bold text-2xl mb-4">ssyok Finance</div>
-<div class="text-green-400 text-lg mb-2">✓ Education + Action</div>
-<div class="text-green-400 text-lg mb-2">✓ AI-Powered Guidance</div>
-<div class="text-green-400 text-lg mb-2">✓ Malaysian Heart</div>
+<div class="hero-card flex flex-col items-center text-center h-full justify-center ml-4 animate-pulse-glow">
+<div class="text-4xl mb-4">🤖</div>
+<div class="text-2xl font-extrabold mb-5 gradient-text">ssyok Finance</div>
+<div class="space-y-2">
+<div class="feature-tag feature-tag--pass">✓ Education + Action</div>
+<div class="feature-tag feature-tag--pass">✓ AI-Powered Guidance</div>
+<div class="feature-tag feature-tag--pass">✓ Malaysian Heart</div>
+</div>
 
-<div class="mt-8 pt-6 border-t border-green-400/30">
-<div class="text-sm opacity-70">Market Vacuum</div>
-<div class="text-base mt-2"><span class="font-bold">Raiz Malaysia</span> exited Sept 2024</div>
-<div class="text-sm opacity-70">Users left stranded, no replacement</div>
+<div class="sf-divider w-full mt-6 mb-4"></div>
+
+<div class="text-xs font-mono" style="color: var(--sf-slate-soft); letter-spacing: 0.04em;">MARKET VACUUM</div>
+<div class="text-sm mt-2" style="color: var(--sf-slate-mid);"><span class="font-bold">Raiz Malaysia</span> exited Sept 2024</div>
+<div class="text-xs mt-1"><a href="https://fintechnews.my/44878/wealthtech-malaysia/raiz-invest-exits-malaysia-after-4-years-to-shift-focus-to-australia/" target="_blank" style="color: var(--sf-slate-soft); font-size: 0.55rem;">Fintech News MY, Jul 2024</a></div>
+<div class="text-xs" style="color: var(--sf-slate-soft);">Users left stranded — no replacement</div>
+</div>
+
+---
+transition: slide-left
+---
+
+# The Spark — A Real Conversation
+
+<div class="text-sm mb-4" style="color: var(--sf-slate-soft);">This is the actual chat that started ssyok Finance</div>
+
+<div class="grid grid-cols-2 gap-6">
+
+<div>
+<div class="text-xs font-mono mb-3" style="color: var(--sf-slate-soft); letter-spacing: 0.06em;">💬 THE CONVERSATION</div>
+<div class="competitor-card p-3" style="position: relative; overflow: hidden;">
+<img src="/ks chat feat idea.png" class="w-full rounded-lg" style="max-height: 320px; object-fit: cover; object-position: top;" />
+<div class="text-xs mt-2 italic" style="color: var(--sf-slate-soft);">Real WhatsApp chat — I asked my friend: "How much you spend a month ah?"</div>
+</div>
+</div>
+
+<div>
+<div class="text-xs font-mono mb-3" style="color: var(--sf-slate-soft); letter-spacing: 0.06em;">📊 THE "SOLUTION" — A SPREADSHEET</div>
+<div class="competitor-card p-3" style="position: relative; overflow: hidden;">
+<img src="/ks spreadsheet example feat.png" class="w-full rounded-lg" style="max-height: 320px; object-fit: cover; object-position: top;" />
+<div class="text-xs mt-2 italic" style="color: var(--sf-slate-soft);">Manual Google Sheets — income, expenses, savings, food, transport...</div>
+</div>
+</div>
+
+</div>
+
+<div class="hero-card p-4 mt-4 text-center">
+<div class="text-base font-bold" style="color: var(--sf-slate);">
+"I wanna do the spreadsheet also" — <span class="gradient-text">but what if there's an app for that?</span>
+</div>
+<div class="text-sm mt-2" style="color: var(--sf-slate-mid);">
+Every category he tracks manually — income, rent, food, transport, savings — is already built into ssyok Finance. <strong>With AI.</strong>
 </div>
 </div>
 
@@ -152,115 +223,116 @@ layout: two-cols
 transition: view-transition
 ---
 
-# 💡 **Introducing ssyok Finance**
-
-<div class="mt-2">
-
-## Your Virtual CFP
-
-<div class="text-base mt-3 p-3 bg-blue-500/10 rounded-lg">
-<span class="font-bold text-blue-400">Certified Financial Planner</span><br/>
-costs <span class="text-red-400 line-through">RM 200-500/hour</span>
-</div>
-
-<div class="text-2xl font-bold text-green-400 mt-4">
-ssyok Finance is FREE
-</div>
+# Introducing ssyok Finance
 
 <div class="mt-4">
 
-### Gemini Brains, Malaysian Heart
+<div class="pill pill--blue mb-4 text-xs">YOUR VIRTUAL CFP</div>
+
+<div class="competitor-card text-center p-4 mb-4">
+<div class="text-sm" style="color: var(--sf-slate-soft);">Certified Financial Planner</div>
+<div class="text-lg font-bold mt-1" style="color: var(--sf-danger);"><span class="line-through">RM 300–600 / hour</span></div>
+</div>
+
+<div class="text-3xl font-extrabold gradient-text mb-6">
+FREE with ssyok Finance
+</div>
+
+<div class="text-xs font-mono mb-3" style="color: var(--sf-slate-soft); letter-spacing: 0.06em;">GEMINI BRAINS, MALAYSIAN HEART</div>
 
 <v-clicks>
 
 - 🧠 AI-powered personalized advice
 - 🇲🇾 Hyper-local (Mamak, PTPTN, EPF)
-- 📊 Real-time net worth & goals
+- 📊 Real-time net worth & goal tracking
 - 🎯 Actionable plans, not just numbers
 
 </v-clicks>
 
 </div>
 
-</div>
-
 ::right::
 
-<div class="ml-8 mt-4">
+<div class="ml-6 mt-4">
 
-## 🌟 **Key Differentiator**
+<div class="pill pill--emerald mb-4 text-xs">KEY DIFFERENTIATOR</div>
 
-### Personal Inflation Rate
+<div class="text-lg font-bold mb-4" style="color: var(--sf-slate);">Personal Inflation Rate</div>
 
-<div class="mt-4 p-4 bg-red-500/20 rounded-xl border border-red-400/50">
-<div class="text-xs opacity-80 mb-1">Generic CFP Advice</div>
-<div class="font-mono text-lg font-bold">"Plan for 3% inflation"</div>
+<div class="competitor-card p-4 mb-3">
+<div class="text-xs font-mono mb-2" style="color: var(--sf-slate-soft); letter-spacing: 0.04em;">GENERIC CFP ADVICE</div>
+<div class="font-mono text-lg font-bold" style="color: var(--sf-slate);">"Plan for 3% inflation"</div>
 </div>
 
-<div class="text-3xl text-center my-4">↓</div>
+<div class="text-2xl text-center my-3" style="color: var(--sf-emerald);">↓</div>
 
-<div class="p-4 bg-green-500/20 rounded-xl border-2 border-green-400">
-<div class="text-xs opacity-80 mb-1">ssyok Finance</div>
-<div class="font-mono text-lg font-bold">"Your inflation is <span class="text-green-400">5.1%</span> based on your medical spending"</div>
+<div class="hero-card p-4">
+<div class="text-xs font-mono mb-2" style="color: var(--sf-emerald-deep); letter-spacing: 0.04em;">SSYOK FINANCE</div>
+<div class="font-mono text-lg font-bold" style="color: var(--sf-slate);">"Your inflation is <span class="gradient-text">5.1%</span> based on your medical spending"</div>
 </div>
 
-<div class="mt-4 text-sm italic opacity-80 px-2">
-💡 Everyone spends differently. A student's inflation ≠ a parent's inflation.
+<div class="mt-4 text-sm italic" style="color: var(--sf-slate-soft);">
+Everyone spends differently. A student's inflation is not a parent's inflation.
 </div>
 
 </div>
 
 ---
-layout: default
 transition: fade
 ---
 
-# 🎬 **App Demo**
+# App Demo
 
-<div class="grid grid-cols-3 gap-6 mt-8">
+<div class="grid grid-cols-3 gap-8">
 
-<!-- SCREENSHOT PLACEHOLDER 1: Dashboard -->
-<div class="flex flex-col items-center">
-<div class="w-full rounded-2xl border-2 border-green-400/50 bg-green-500/5 flex items-center justify-center" style="height: 340px;">
-<div class="text-center opacity-60">
+<!-- Dashboard -->
+<div class="flex flex-col items-center animate-fade-up delay-1">
+<div class="phone-frame w-full flex items-center justify-center" style="height: 340px; background: linear-gradient(180deg, #ecfdf5, #f0fdf4);">
+
+<!-- Replace with: <img src="/screenshots/dashboard.png" class="w-full h-full object-cover" /> -->
+<div class="text-center" style="color: var(--sf-slate-soft);">
 <div class="text-4xl mb-3">📊</div>
-<div class="text-sm font-mono">[ SCREENSHOT ]</div>
-<div class="text-xs mt-1">Dashboard Screen</div>
+<div class="text-xs font-mono">Dashboard</div>
 </div>
+
 </div>
-<div class="mt-3 text-center">
-<div class="font-bold text-sm">Net Worth Overview</div>
-<div class="text-xs opacity-70 mt-1">Assets · Debts · Emergency Fund</div>
+<div class="mt-4 text-center">
+<div class="font-bold text-sm" style="color: var(--sf-slate);">Net Worth Overview</div>
+<div class="text-xs mt-1" style="color: var(--sf-slate-soft);">Assets · Debts · Emergency Fund</div>
 </div>
 </div>
 
-<!-- SCREENSHOT PLACEHOLDER 2: Goals -->
-<div class="flex flex-col items-center">
-<div class="w-full rounded-2xl border-2 border-blue-400/50 bg-blue-500/5 flex items-center justify-center" style="height: 340px;">
-<div class="text-center opacity-60">
+<!-- Goals -->
+<div class="flex flex-col items-center animate-fade-up delay-2">
+<div class="phone-frame w-full flex items-center justify-center" style="height: 340px; background: linear-gradient(180deg, #eff6ff, #dbeafe);">
+
+<!-- Replace with: <img src="/screenshots/goals.png" class="w-full h-full object-cover" /> -->
+<div class="text-center" style="color: var(--sf-slate-soft);">
 <div class="text-4xl mb-3">🎯</div>
-<div class="text-sm font-mono">[ SCREENSHOT ]</div>
-<div class="text-xs mt-1">Goals Screen</div>
+<div class="text-xs font-mono">Goals</div>
 </div>
+
 </div>
-<div class="mt-3 text-center">
-<div class="font-bold text-sm">Smart Goal Tracking</div>
-<div class="text-xs opacity-70 mt-1">Progress · Timeline · AI Tips</div>
+<div class="mt-4 text-center">
+<div class="font-bold text-sm" style="color: var(--sf-slate);">Smart Goal Tracking</div>
+<div class="text-xs mt-1" style="color: var(--sf-slate-soft);">Progress · Timeline · AI Tips</div>
 </div>
 </div>
 
-<!-- SCREENSHOT PLACEHOLDER 3: AI Chat -->
-<div class="flex flex-col items-center">
-<div class="w-full rounded-2xl border-2 border-purple-400/50 bg-purple-500/5 flex items-center justify-center" style="height: 340px;">
-<div class="text-center opacity-60">
+<!-- AI Chat -->
+<div class="flex flex-col items-center animate-fade-up delay-3">
+<div class="phone-frame w-full flex items-center justify-center" style="height: 340px; background: linear-gradient(180deg, #f5f3ff, #ede9fe);">
+
+<!-- Replace with: <img src="/screenshots/ai-chat.png" class="w-full h-full object-cover" /> -->
+<div class="text-center" style="color: var(--sf-slate-soft);">
 <div class="text-4xl mb-3">🤖</div>
-<div class="text-sm font-mono">[ SCREENSHOT ]</div>
-<div class="text-xs mt-1">AI Chat Screen</div>
+<div class="text-xs font-mono">AI Chat</div>
 </div>
+
 </div>
-<div class="mt-3 text-center">
-<div class="font-bold text-sm">Gemini AI Advisor</div>
-<div class="text-xs opacity-70 mt-1">"Boss, your Kopi ais is cutting into your House fund 🏠"</div>
+<div class="mt-4 text-center">
+<div class="font-bold text-sm" style="color: var(--sf-slate);">Gemini AI Advisor</div>
+<div class="text-xs mt-1 font-mono" style="color: var(--sf-emerald-deep);">"Your Food &amp; Dining is 35% of income — cut by RM 200/mo and you'll hit your House goal 8 months faster"</div>
 </div>
 </div>
 
@@ -270,104 +342,101 @@ transition: fade
 layout: two-cols
 ---
 
-# 🛠️ **Tech Stack: 100% Google**
+# Tech Stack
 
-<div class="mt-4">
+<div class="pill pill--emerald mt-2 mb-4 text-xs">100% GOOGLE</div>
+
+<div class="mt-2">
 
 ```mermaid
-%%{init: {'theme':'base', 'themeVariables': {'primaryColor':'#065f46','primaryTextColor':'#000','primaryBorderColor':'#047857','lineColor':'#059669','secondaryColor':'#1e40af','secondaryTextColor':'#000','secondaryBorderColor':'#2563eb','tertiaryColor':'#dc2626','tertiaryTextColor':'#fff','tertiaryBorderColor':'#b91c1c'}}}%%
+%%{init: {'theme':'base', 'themeVariables': {'primaryColor':'#10b981','primaryTextColor':'#fff','primaryBorderColor':'#059669','lineColor':'#94a3b8','secondaryColor':'#3b82f6','tertiaryColor':'#7c3aed','fontFamily':'Plus Jakarta Sans'}}}%%
 flowchart TB
-    A[Flutter<br/>Cross-Platform UI] --> B[Firebase Auth]
-    A --> C[Firestore<br/>Database]
-    A --> D[Cloud Functions]
-    D --> ADK[Google ADK<br/>Agent Framework]
-    ADK --> E[Gemini 2.5 Flash<br/>AI Engine]
-    
-    style A fill:#3b82f6,stroke:#1e40af,color:#fff
-    style B fill:#dc2626,stroke:#b91c1c,color:#fff
-    style C fill:#dc2626,stroke:#b91c1c,color:#fff
-    style D fill:#dc2626,stroke:#b91c1c,color:#fff
-    style ADK fill:#7c3aed,stroke:#5b21b6,color:#fff
-    style E fill:#059669,stroke:#047857,color:#fff
+    A["Flutter UI"] --> B["Firebase Auth"]
+    A --> C["Firestore DB"]
+    A --> D["Cloud Functions"]
+    D --> ADK["Google ADK"]
+    ADK --> E["Gemini 2.5 Flash"]
+
+    style A fill:#3b82f6,stroke:#1e40af,color:#fff,rx:12
+    style B fill:#f97316,stroke:#ea580c,color:#fff,rx:12
+    style C fill:#f97316,stroke:#ea580c,color:#fff,rx:12
+    style D fill:#f97316,stroke:#ea580c,color:#fff,rx:12
+    style ADK fill:#7c3aed,stroke:#5b21b6,color:#fff,rx:12
+    style E fill:#10b981,stroke:#059669,color:#fff,rx:12
 ```
 
 </div>
 
 ::right::
 
-<div class="mt-8 ml-4">
+<div class="mt-12 ml-6">
 
 | Technology | Role |
-|------------|-------|
+|------------|------|
 | **Flutter** | Cross-platform UI |
-| **Firebase Auth** | Secure Google Sign-In |
-| **Firestore** | Real-time data sync |
+| **Firebase Auth** | Google Sign-In |
+| **Firestore** | Real-time data |
 | **Cloud Functions** | Serverless backend |
 | **Google ADK** | Agent orchestration |
-| **Gemini 2.5 Flash** | AI reasoning engine |
+| **Gemini 2.5 Flash** | AI engine |
 
-<div class="mt-6 p-4 bg-gradient-to-br from-green-500/20 to-blue-500/20 rounded-lg border-2 border-green-400 text-center">
-<div class="font-bold text-lg">Perfect KitaHack Alignment</div>
-<div class="text-xs mt-1 opacity-80">Full Google AI ecosystem — no third-party AI</div>
+<div class="hero-card p-3 mt-4 text-center">
+<div class="font-bold text-sm" style="color: var(--sf-slate);">Gemini-Native Product</div>
+<div class="text-xs mt-1" style="color: var(--sf-slate-mid);">Full Google AI ecosystem — zero third-party AI</div>
 </div>
 
-<div class="mt-4 p-3 bg-orange-500/10 rounded-lg border border-orange-400/40 text-center">
-<div class="text-sm font-bold text-orange-400">⚡ Key Challenge Solved</div>
-<div class="text-xs mt-1 opacity-80">Prompt engineering with Malaysian context<br/>(EPF, PTPTN, RM-denominated advice)</div>
+<div class="stat-card stat-card--warning p-3 mt-3 text-center">
+<div class="text-xs font-bold" style="color: var(--sf-amber);">Key Challenge Solved</div>
+<div class="text-xs mt-1" style="color: var(--sf-slate-mid);">Malaysian prompt engineering (EPF, PTPTN, RM)</div>
+</div>
+
+<div class="stat-card stat-card--success p-3 mt-3 text-center">
+<div class="text-xs font-bold" style="color: var(--sf-emerald);">Scalable Architecture</div>
+<div class="text-xs mt-1" style="color: var(--sf-slate-mid);">Serverless + Firestore auto-scales to millions<br/>Region: asia-southeast1 (lowest latency to MY)</div>
 </div>
 
 </div>
 
 ---
-layout: default
----
 
-# 👥 **User Feedback & Iteration**
+# User Feedback & Iteration
 
-<div class="text-center text-lg opacity-70 mb-8">We didn't just build it. We tested it with real users.</div>
+<div class="text-sm mb-6" style="color: var(--sf-slate-soft);">We didn't just build it. We tested it with real users.</div>
 
-<div class="grid grid-cols-2 gap-10">
+<div class="grid grid-cols-2 gap-8">
 
-<div class="p-6 bg-blue-500/10 rounded-2xl border border-blue-400/30">
+<div class="competitor-card p-4">
 
-### 📋 Testing Process
+<div class="text-xs font-mono mb-3" style="color: var(--sf-slate-soft); letter-spacing: 0.06em;">REAL FEEDBACK FORM</div>
 
-<div class="mt-4 space-y-3 text-sm">
-<div class="flex items-start gap-3">
-<span class="text-blue-400 font-bold">1.</span>
-<span>Recruited <strong>university students</strong> (Gen Z target users)</span>
-</div>
-<div class="flex items-start gap-3">
-<span class="text-blue-400 font-bold">2.</span>
-<span>Tested on <strong>real devices</strong> — Samsung, Realme, Poco, Redmi</span>
-</div>
-<div class="flex items-start gap-3">
-<span class="text-blue-400 font-bold">3.</span>
-<span>Collected structured feedback via <strong>survey forms</strong></span>
-</div>
-</div>
+<img src="/ssyok FInance Feedback.png" class="w-full rounded-lg" style="box-shadow: 0 2px 8px rgba(15, 23, 42, 0.1);" />
+
+<div class="text-xs mt-2" style="color: var(--sf-slate-soft);">Alpha testers on real devices — structured Google Forms survey</div>
 
 </div>
 
-<div class="p-6 bg-green-500/10 rounded-2xl border border-green-400/30">
+<div class="competitor-card p-6">
 
-### 🔄 What Users Told Us
+<div class="text-xs font-mono mb-4" style="color: var(--sf-slate-soft); letter-spacing: 0.06em;">WHAT USERS TOLD US</div>
 
-<div class="mt-4 space-y-3 text-sm">
+<div class="space-y-3 text-sm">
 
 <v-clicks>
 
-<div class="p-2 bg-green-500/10 rounded border-l-2 border-green-400">
-<span class="text-green-400 font-bold">❤️ #1 Feature:</span> Dashboard & Net Worth Graph — loved across all testers
+<div class="timeline-item" style="border-left-color: var(--sf-emerald);">
+<span class="font-bold" style="color: var(--sf-emerald-deep);">Most Loved</span>
+<span style="color: var(--sf-slate-mid);"> — Dashboard & Net Worth Graph</span>
 </div>
-<div class="p-2 bg-blue-500/10 rounded border-l-2 border-blue-400">
-<span class="text-blue-400 font-bold">⭐ Also loved:</span> Calculators (FIRE, Inflation) & Privacy / Offline Mode
+<div class="timeline-item" style="border-left-color: var(--sf-blue);">
+<span class="font-bold" style="color: var(--sf-blue-deep);">Also Loved</span>
+<span style="color: var(--sf-slate-mid);"> — Calculators (FIRE, Inflation) & Offline Mode</span>
 </div>
-<div class="p-2 bg-yellow-500/10 rounded border-l-2 border-yellow-400">
-<span class="text-yellow-400 font-bold">📢 Top Request:</span> Monthly cash flow & budgeting — building it next
+<div class="timeline-item" style="border-left-color: var(--sf-amber);">
+<span class="font-bold" style="color: #b45309;">Top Request</span>
+<span style="color: var(--sf-slate-mid);"> — Monthly cash flow & budgeting</span>
 </div>
-<div class="p-2 bg-purple-500/10 rounded border-l-2 border-purple-400">
-<span class="text-purple-400 font-bold">💬 User Quote:</span> "Amazing and structured app for beginners and professionals"
+<div class="sf-quote text-xs mt-2">
+Amazing and structured app for beginners and professionals
 </div>
 
 </v-clicks>
@@ -379,121 +448,142 @@ layout: default
 </div>
 
 ---
-layout: default
----
 
-# 💰 **Business Model: Friendly Freemium**
+# Business Model & Future Roadmap
 
-<div class="text-center text-lg opacity-80 mt-2 mb-8">Lower barriers, monetize power users</div>
+<div class="grid grid-cols-3 gap-5 mt-6">
 
-<div class="grid grid-cols-2 gap-10">
+<div class="tier-card">
 
-<div class="pitch-card p-8 bg-gradient-to-br from-gray-500/10 to-gray-600/10 rounded-2xl border border-gray-500/30">
+<div class="text-xs font-mono mb-3" style="color: var(--sf-slate-soft); letter-spacing: 0.06em;">FREE TIER</div>
+<div class="text-xs mb-4" style="color: var(--sf-slate-soft);">Ad-Supported via Google AdMob</div>
 
-### 🆓 **Free Tier**
-<div class="text-sm opacity-70 mb-6">(Ad-Supported)</div>
-
-<div class="space-y-2 text-base">
-<div>✅ Financial dashboard & tracking</div>
-<div>✅ Goals, debts, expenses management</div>
-<div>✅ Standard calculators (FIRE, Compound)</div>
-<div>✅ Limited Gemini chat <span class="text-sm opacity-70">(10/month)</span></div>
-<div>📱 Banner ads (Google AdMob)</div>
+<div class="space-y-2 text-sm" style="color: var(--sf-slate-mid);">
+<div>✅ Financial dashboard</div>
+<div>✅ Goals & debt tracking</div>
+<div>✅ Standard calculators</div>
+<div>✅ Limited Gemini chat <span class="text-xs" style="color: var(--sf-slate-soft);">(5/mo)</span></div>
 </div>
 
-<div class="mt-8 text-3xl font-bold">FREE</div>
+<div class="sf-divider mt-4 mb-4"></div>
+<div class="text-3xl font-extrabold" style="color: var(--sf-slate);">FREE</div>
 
 </div>
 
-<div class="pitch-card p-8 bg-gradient-to-br from-green-500/20 to-blue-500/20 rounded-2xl border-2 border-green-400">
+<div class="tier-card tier-card--premium" style="margin-top: -4px;">
 
-### ⭐ **ssyok+ AI**
-<div class="text-sm opacity-70 mb-6">(Premium)</div>
+<div class="text-xs font-mono mb-3 mt-2" style="color: var(--sf-emerald-deep); letter-spacing: 0.06em;">SSYOK+ AI</div>
+<div class="text-xs mb-4" style="color: var(--sf-slate-soft);">Premium Subscription</div>
 
-<div class="space-y-2 text-base">
+<div class="space-y-2 text-sm" style="color: var(--sf-slate-mid);">
 <div>✅ Everything in Free</div>
-<div>✅ <span class="text-green-400 font-bold">Unlimited Gemini chat</span></div>
+<div>✅ <strong class="gradient-text">100 AI responses/mo</strong></div>
 <div>✅ Smart spending audits</div>
-<div>✅ Automated debt snowball</div>
-<div>🚫 <span class="font-bold">No ads</span></div>
+<div>✅ Auto debt snowball</div>
+<div>🚫 <strong style="color: var(--sf-slate);">No ads</strong></div>
 </div>
 
-<div class="mt-8 text-3xl font-bold text-green-400">RM 4.90/month</div>
+<div class="sf-divider mt-4 mb-4"></div>
+<div class="text-3xl font-extrabold gradient-text">RM 4.90<span class="text-lg font-normal" style="color: var(--sf-slate-soft);">/mo</span></div>
 
+</div>
+
+<div class="competitor-card">
+
+<div class="text-xs font-mono mb-3" style="color: var(--sf-slate-soft); letter-spacing: 0.06em;">ROADMAP</div>
+<div class="text-xs mb-4" style="color: var(--sf-slate-soft);">Post-Hackathon Development</div>
+
+<div class="space-y-2">
+<div class="timeline-item text-xs" style="border-left-color: var(--sf-emerald);">
+<div class="font-bold" style="color: var(--sf-emerald-deep);">Q3 2026</div>
+<div style="color: var(--sf-slate-mid);">Google Play + budgeting</div>
+</div>
+<div class="timeline-item text-xs" style="border-left-color: var(--sf-blue);">
+<div class="font-bold" style="color: var(--sf-blue-deep);">Q4 2026</div>
+<div style="color: var(--sf-slate-mid);">Open banking APIs</div>
+</div>
+<div class="timeline-item text-xs" style="border-left-color: var(--sf-purple);">
+<div class="font-bold" style="color: var(--sf-purple);">2027</div>
+<div style="color: var(--sf-slate-mid);">Insurance + EPF optimizer</div>
+</div>
+<div class="timeline-item text-xs" style="border-left-color: var(--sf-amber);">
+<div class="font-bold" style="color: #b45309;">Vision</div>
+<div style="color: var(--sf-slate-mid);">Full platform for SEA</div>
+</div>
 </div>
 
 </div>
 
-<div class="mt-8 text-center text-lg">
-💡 <span class="font-bold text-green-400">Self-sustaining model</span> — not just a hackathon project
+</div>
+
+<div class="mt-5 text-center text-sm" style="color: var(--sf-slate-mid);">
+<span class="font-bold gradient-text">Self-sustaining model</span> — AdMob + Google Play subscriptions from day one
 </div>
 
 ---
-layout: default
----
 
-# 🚀 **Go-To-Market & Impact**
+# Go-To-Market & SDG Impact
 
-<div class="grid grid-cols-2 gap-6 mt-4">
+<div class="grid grid-cols-2 gap-6 mt-6">
 
-<div class="p-5 bg-blue-500/10 rounded-2xl border border-blue-400/30">
+<div class="competitor-card p-5">
 
-### 📈 Market Opportunity
+<div class="text-xs font-mono mb-4" style="color: var(--sf-slate-soft); letter-spacing: 0.06em;">MARKET OPPORTUNITY</div>
 
-<div class="grid grid-cols-3 gap-2 mt-3 text-center">
-<div class="p-2 bg-white/5 rounded-lg">
-<div class="text-xs opacity-70">TAM</div>
-<div class="font-bold text-xl mt-1">25M</div>
-<div class="text-xs opacity-60">Smartphone users</div>
+<div class="grid grid-cols-3 gap-3 text-center mb-5">
+<div class="stat-card p-2">
+<div class="text-xs" style="color: var(--sf-slate-soft);">TAM</div>
+<div class="text-xl font-extrabold mt-1" style="color: var(--sf-slate);">25M</div>
+<div class="text-xs" style="color: var(--sf-slate-soft);">Smartphone users</div>
 </div>
-<div class="p-2 bg-white/10 rounded-lg">
-<div class="text-xs opacity-70">SAM</div>
-<div class="font-bold text-xl mt-1">10M</div>
-<div class="text-xs opacity-60">Gen Z & Millennials</div>
+<div class="stat-card p-2">
+<div class="text-xs" style="color: var(--sf-slate-soft);">SAM</div>
+<div class="text-xl font-extrabold mt-1" style="color: var(--sf-slate);">10M</div>
+<div class="text-xs" style="color: var(--sf-slate-soft);">Gen Z & Millennials</div>
 </div>
-<div class="p-2 bg-green-500/20 rounded-lg border border-green-400/30">
-<div class="text-xs opacity-70">SOM Y1</div>
-<div class="font-bold text-xl mt-1 text-green-400">100K</div>
-<div class="text-xs opacity-60">Fresh Grads & Youth</div>
+<div class="stat-card stat-card--success p-2">
+<div class="text-xs" style="color: var(--sf-slate-soft);">SOM Y1</div>
+<div class="text-xl font-extrabold mt-1 gradient-text">100K</div>
+<div class="text-xs" style="color: var(--sf-slate-soft);">Fresh Grads & Youth</div>
 </div>
 </div>
 
-### 🎯 Success Metrics
+<div class="text-xs font-mono mb-3" style="color: var(--sf-slate-soft); letter-spacing: 0.06em;">SUCCESS METRICS</div>
 
-<div class="mt-3 text-sm space-y-1">
+<div class="text-sm space-y-1" style="color: var(--sf-slate-mid);">
 <div>📊 <strong>Month 3:</strong> 1,000 active users</div>
 <div>📊 <strong>Month 6:</strong> 10,000 users + 500 paid</div>
-<div>📊 <strong>Year 1:</strong> 100K users + impact report</div>
+<div>📊 <strong>Year 1:</strong> 100K users + SDG impact report</div>
 </div>
 
 </div>
 
-<div class="p-5 bg-green-500/10 rounded-2xl border border-green-400/30">
+<div class="competitor-card p-5">
 
-### 🚀 How We Get There
+<div class="text-xs font-mono mb-4" style="color: var(--sf-slate-soft); letter-spacing: 0.06em;">GO-TO-MARKET</div>
 
-<div class="mt-3 space-y-2 text-sm">
-<div class="flex items-center gap-2">
-<span class="text-2xl">🎓</span>
-<div><strong>University Partnerships</strong> — Finance clubs, workshops</div>
+<div class="space-y-3 text-sm mb-5" style="color: var(--sf-slate-mid);">
+<div class="flex items-center gap-3">
+<span class="text-xl">🎓</span>
+<div><strong style="color: var(--sf-slate);">University Partnerships</strong> — Finance clubs, workshops</div>
 </div>
-<div class="flex items-center gap-2">
-<span class="text-2xl">📱</span>
-<div><strong>TikTok Content</strong> — "Financial Mistakes 101"</div>
+<div class="flex items-center gap-3">
+<span class="text-xl">📱</span>
+<div><strong style="color: var(--sf-slate);">TikTok Content</strong> — "Financial Mistakes 101"</div>
 </div>
-<div class="flex items-center gap-2">
-<span class="text-2xl">👥</span>
-<div><strong>Campus Ambassadors</strong> — Peer-to-peer growth</div>
+<div class="flex items-center gap-3">
+<span class="text-xl">👥</span>
+<div><strong style="color: var(--sf-slate);">Campus Ambassadors</strong> — Peer-to-peer growth</div>
 </div>
 </div>
 
-### 🌍 SDG 8.10 Alignment
+<div class="text-xs font-mono mb-3" style="color: var(--sf-slate-soft); letter-spacing: 0.06em;">SDG 8.10 DIRECT ALIGNMENT</div>
 
-<div class="mt-3 text-sm space-y-1">
-<div><span class="text-green-400">✓</span> "For ALL" → Free tier, no barrier</div>
-<div><span class="text-green-400">✓</span> "Banking" → Savings + emergency fund</div>
-<div><span class="text-green-400">✓</span> "Insurance" → Coverage tracker</div>
-<div><span class="text-green-400">✓</span> "Financial services" → AI explains all</div>
+<div class="text-sm space-y-1" style="color: var(--sf-slate-mid);">
+<div><span style="color: var(--sf-emerald);">✓</span> "For ALL" — Free tier, zero barrier</div>
+<div><span style="color: var(--sf-emerald);">✓</span> "Banking" — Savings + emergency fund</div>
+<div><span style="color: var(--sf-emerald);">✓</span> "Insurance" — Coverage tracker</div>
+<div><span style="color: var(--sf-emerald);">✓</span> "Financial services" — AI explains all</div>
 </div>
 
 </div>
@@ -501,63 +591,67 @@ layout: default
 </div>
 
 ---
-layout: end
+layout: cover
 transition: fade
 ---
 
-# 🍜 **Team Hokkien Mee is Red**
+<div class="absolute inset-0 flex items-center justify-center" style="background: linear-gradient(160deg, #064e3b 0%, #065f46 30%, #10b981 100%);">
 
-<div class="text-base font-light">
+<div class="absolute inset-0" style="background: radial-gradient(circle at 30% 70%, rgba(255,255,255,0.08) 0%, transparent 50%), radial-gradient(circle at 70% 30%, rgba(255,255,255,0.05) 0%, transparent 50%);"></div>
+
+<div class="text-center z-10">
+
+<div class="text-4xl font-extrabold text-white mb-2" style="letter-spacing: -0.03em;">
+Team Hokkien Mee is Red
+</div>
+
+<div class="text-base font-light text-white/60 mb-10">
 Building the future of financial literacy for Malaysia
 </div>
 
-<div class="mt-4 grid grid-cols-3 gap-6 text-center">
+<div class="flex justify-center gap-6 mb-10">
 
-<div class="p-4 bg-white/5 rounded-2xl border border-white/10">
-<div class="text-4xl mb-2">👨‍💻</div>
-<div class="font-bold text-base">Sim Sze Yu</div>
-<div class="text-xs opacity-70 mt-1">CEO & Lead Engineer</div>
+<div class="p-5 rounded-2xl text-center" style="background: rgba(255,255,255,0.1); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.15); width: 160px;">
+<div class="text-3xl mb-2">👨‍💻</div>
+<div class="font-bold text-white text-sm">Sim Sze Yu</div>
+<div class="text-xs text-white/50 mt-1">CEO & Lead Engineer</div>
 </div>
 
-<div class="p-4 bg-gradient-to-br from-purple-500/20 to-blue-500/20 rounded-2xl border border-purple-400/30">
-<div class="text-4xl mb-2">🤖</div>
-<div class="font-bold text-base">Claude</div>
-<div class="text-xs text-purple-400 mt-1">CTO & Architecture</div>
+<div class="p-5 rounded-2xl text-center" style="background: rgba(255,255,255,0.15); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.2); width: 160px;">
+<div class="text-3xl mb-2">🤖</div>
+<div class="font-bold text-white text-sm">Claude</div>
+<div class="text-xs text-white/50 mt-1">CTO & Architecture</div>
 </div>
 
-<div class="p-4 bg-gradient-to-br from-green-500/20 to-teal-500/20 rounded-2xl border border-green-400/30">
-<div class="text-4xl mb-2">✨</div>
-<div class="font-bold text-base">Gemini</div>
-<div class="text-xs text-green-400 mt-1">AI Product Lead</div>
-</div>
-
-</div>
-
-<div class="mt-6">
-
-<div class="text-base opacity-90">
-📲 Help us help Malaysia save — one Kopi ais at a time ☕
-</div>
-
-<div class="mt-3 inline-flex gap-4 items-center">
-
-<div class="p-3 bg-white/5 rounded-xl border border-white/10">
-<div class="font-mono text-sm text-green-400">github.com/szeyu/open-ssyok-finance</div>
-</div>
-
-<!-- PLAY STORE PLACEHOLDER -->
-<div class="p-3 bg-white/5 rounded-xl border border-white/10 flex items-center gap-2">
-<span class="text-2xl">▶️</span>
-<div class="text-left">
-<div class="text-xs opacity-60">Coming Soon on</div>
-<div class="text-sm font-bold">Google Play</div>
-</div>
+<div class="p-5 rounded-2xl text-center" style="background: rgba(255,255,255,0.1); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.15); width: 160px;">
+<div class="text-3xl mb-2">✨</div>
+<div class="font-bold text-white text-sm">Gemini</div>
+<div class="text-xs text-white/50 mt-1">AI Product Lead</div>
 </div>
 
 </div>
 
+<div class="text-xl font-semibold text-white mb-8">
+Help us help Malaysia save — one ringgit at a time
 </div>
 
-<div class="mt-4 text-xs opacity-60">
-🎯 KitaHack 2026 • SDG 8.10 • Financial Access for All
+<div class="flex justify-center gap-4">
+
+<div class="px-5 py-3 rounded-xl flex items-center gap-2" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);">
+<div class="font-mono text-sm text-white/80">github.com/szeyu/open-ssyok-finance</div>
+</div>
+
+
+</div>
+
+<div class="mt-8 flex items-center justify-center gap-3 text-xs text-white/30 font-mono" style="letter-spacing: 0.08em;">
+<span>KITAHACK 2026</span>
+<span style="width: 4px; height: 4px; border-radius: 50%; background: rgba(255,255,255,0.2);"></span>
+<span>SDG 8.10</span>
+<span style="width: 4px; height: 4px; border-radius: 50%; background: rgba(255,255,255,0.2);"></span>
+<span>FINANCIAL ACCESS FOR ALL</span>
+</div>
+
+</div>
+
 </div>

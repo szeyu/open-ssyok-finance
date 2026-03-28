@@ -1,173 +1,526 @@
-/* Custom Styles for ssyok Finance Pitch Deck */
+/* ============================================
+   ssyok Finance — Pitch Deck Design System
+   Aesthetic: Modern Fintech Editorial
+   ============================================ */
 
-/* Root Variables */
+/* === Design Tokens === */
 :root {
-  --pitch-primary: #10b981;
-  --pitch-secondary: #3b82f6;
-  --pitch-accent: #f59e0b;
-  --pitch-success: #10b981;
-  --pitch-danger: #ef4444;
-  --pitch-warning: #f59e0b;
+  --sf-emerald: #10b981;
+  --sf-emerald-deep: #059669;
+  --sf-emerald-light: #d1fae5;
+  --sf-emerald-mist: #ecfdf5;
+  --sf-blue: #3b82f6;
+  --sf-blue-deep: #1d4ed8;
+  --sf-slate: #0f172a;
+  --sf-slate-mid: #334155;
+  --sf-slate-soft: #64748b;
+  --sf-warm: #fafaf9;
+  --sf-surface: #ffffff;
+  --sf-danger: #dc2626;
+  --sf-amber: #f59e0b;
+  --sf-purple: #7c3aed;
+
+  --sf-radius: 16px;
+  --sf-radius-sm: 10px;
+  --sf-shadow-card: 0 1px 3px rgba(15, 23, 42, 0.04), 0 4px 12px rgba(15, 23, 42, 0.06);
+  --sf-shadow-elevated: 0 4px 6px rgba(15, 23, 42, 0.04), 0 12px 32px rgba(15, 23, 42, 0.08);
+  --sf-shadow-hero: 0 8px 24px rgba(16, 185, 129, 0.15), 0 24px 64px rgba(16, 185, 129, 0.08);
 }
 
-/* Global Typography Enhancements */
+/* === Base Slide Styles === */
+.slidev-layout {
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  letter-spacing: -0.01em;
+  color: var(--sf-slate);
+}
+
+/* === Typography Hierarchy === */
 .slidev-layout h1 {
-  font-size: 3rem;
-  font-weight: bold;
-  color: var(--pitch-primary);
-  line-height: 1.2;
+  font-size: 2.75rem;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+  color: var(--sf-slate);
+  position: relative;
+}
+
+/* Emerald accent line under h1 */
+.slidev-layout h1::after {
+  content: '';
+  display: block;
+  width: 48px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--sf-emerald), var(--sf-blue));
+  border-radius: 2px;
+  margin-top: 12px;
+}
+
+/* Center the accent on centered layouts */
+.slidev-layout.statement h1::after,
+.slidev-layout.fact h1::after,
+.slidev-layout.cover h1::after,
+.slidev-layout.end h1::after {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .slidev-layout h2 {
-  font-size: 1.875rem;
-  font-weight: 600;
-  color: var(--pitch-secondary);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--sf-slate);
   line-height: 1.3;
 }
 
 .slidev-layout h3 {
-  font-size: 1.25rem;
-  font-weight: 500;
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: var(--sf-slate-mid);
   line-height: 1.4;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
 }
 
-/* Pitch Card Component */
-.pitch-card {
-  transition: all 0.3s ease;
+.slidev-layout p,
+.slidev-layout li,
+.slidev-layout span,
+.slidev-layout div {
+  line-height: 1.6;
 }
 
-.pitch-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+/* === Subtle Background Texture === */
+.slidev-page {
+  background-color: var(--sf-warm) !important;
+  background-image:
+    radial-gradient(circle at 100% 0%, rgba(16, 185, 129, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 0% 100%, rgba(59, 130, 246, 0.02) 0%, transparent 50%);
 }
 
-/* Stat Box Component */
-.stat-box {
-  transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
+/* === Statement Layout Enhancement === */
+.slidev-layout.statement {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--sf-warm);
 }
 
-.stat-box:hover {
-  transform: scale(1.05);
+/* === Custom List Bullets === */
+.slidev-layout ul {
+  list-style: none;
+  padding-left: 0;
 }
 
-/* Custom Gradients */
-.gradient-success {
-  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+.slidev-layout li {
+  position: relative;
+  padding-left: 1.75rem;
+  margin-bottom: 0.5rem;
 }
 
-.gradient-primary {
-  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+.slidev-layout li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  background: linear-gradient(135deg, var(--sf-emerald), var(--sf-blue));
+  transform: rotate(45deg);
 }
 
-.gradient-accent {
-  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+/* === Stat Cards === */
+.stat-card {
+  position: relative;
+  padding: 1.5rem;
+  border-radius: var(--sf-radius);
+  background: var(--sf-surface);
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.08), 0 8px 24px rgba(15, 23, 42, 0.06);
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+  overflow: hidden;
 }
 
-.gradient-hero {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  border-radius: var(--sf-radius) var(--sf-radius) 0 0;
 }
 
-/* Feature Badge */
-.feature-badge {
-  padding: 0.25rem 0.75rem;
-  border-radius: 9999px;
-  font-size: 0.875rem;
+.stat-card--danger::before { background: linear-gradient(90deg, #dc2626, #f97316); }
+.stat-card--warning::before { background: linear-gradient(90deg, #f59e0b, #dc2626); }
+.stat-card--purple::before { background: linear-gradient(90deg, #7c3aed, #dc2626); }
+.stat-card--success::before { background: linear-gradient(90deg, #10b981, #3b82f6); }
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--sf-shadow-elevated);
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.8rem;
   font-weight: 500;
-  background-color: rgb(209 250 229);
-  color: rgb(22 101 52);
+  color: var(--sf-slate-mid);
+  margin-top: 0.5rem;
 }
 
-.dark .feature-badge {
-  background-color: rgb(22 101 52);
-  color: rgb(209 250 229);
+.stat-source {
+  font-size: 0.65rem;
+  color: var(--sf-slate-soft);
+  margin-top: 0.25rem;
+  font-style: italic;
 }
 
-/* Animations */
+/* === Competitor/Solution Cards === */
+.competitor-card {
+  padding: 1.25rem;
+  border-radius: var(--sf-radius);
+  background: var(--sf-surface);
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.08), 0 8px 24px rgba(15, 23, 42, 0.06);
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  transition: all 0.3s ease;
+}
+
+.hero-card {
+  padding: 1.5rem;
+  border-radius: var(--sf-radius);
+  background: linear-gradient(135deg, var(--sf-emerald-mist), rgba(219, 234, 254, 0.5));
+  border: 2px solid var(--sf-emerald);
+  box-shadow: var(--sf-shadow-hero);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-card::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* === Feature Tags === */
+.feature-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.375rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.feature-tag--pass {
+  background: var(--sf-emerald-light);
+  color: var(--sf-emerald-deep);
+}
+
+.feature-tag--fail {
+  background: #fef2f2;
+  color: var(--sf-danger);
+}
+
+/* === Demo Phone Frames === */
+.phone-frame {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  background: var(--sf-surface);
+  box-shadow: var(--sf-shadow-elevated);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.phone-frame:hover {
+  transform: translateY(-4px) scale(1.01);
+}
+
+.phone-frame__notch {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40%;
+  height: 20px;
+  background: var(--sf-slate);
+  border-radius: 0 0 12px 12px;
+  z-index: 10;
+}
+
+/* === Pricing Tier Cards === */
+.tier-card {
+  padding: 1.5rem;
+  border-radius: var(--sf-radius);
+  background: var(--sf-surface);
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.08), 0 8px 24px rgba(15, 23, 42, 0.06);
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.tier-card--premium {
+  border: 2px solid var(--sf-emerald);
+  box-shadow: var(--sf-shadow-hero);
+}
+
+.tier-card--premium::before {
+  content: 'RECOMMENDED';
+  position: absolute;
+  top: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.25rem 1rem;
+  background: linear-gradient(90deg, var(--sf-emerald), var(--sf-emerald-deep));
+  color: white;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  border-radius: 0 0 8px 8px;
+}
+
+/* === Roadmap Timeline === */
+.timeline-item {
+  position: relative;
+  padding: 0.75rem 1rem;
+  background: var(--sf-surface);
+  border-radius: var(--sf-radius-sm);
+  box-shadow: var(--sf-shadow-card);
+  border-left: 3px solid;
+  transition: transform 0.2s ease;
+}
+
+.timeline-item:hover {
+  transform: translateX(4px);
+}
+
+/* === Table Styling === */
+.slidev-layout table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.slidev-layout th {
+  text-align: left;
+  font-weight: 700;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--sf-slate-soft);
+  padding: 0.75rem 0.5rem;
+  border-bottom: 2px solid var(--sf-emerald);
+}
+
+.slidev-layout td {
+  padding: 0.6rem 0.5rem;
+  font-size: 0.85rem;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+.slidev-layout tr:last-child td {
+  border-bottom: none;
+}
+
+/* === Mermaid Diagram === */
+.mermaid {
+  margin: 0 auto;
+}
+
+.mermaid .node rect,
+.mermaid .node polygon {
+  rx: 12px;
+  ry: 12px;
+}
+
+/* === Link Styling === */
+.slidev-layout a {
+  color: var(--sf-emerald-deep);
+  text-decoration: none;
+  border-bottom: 1.5px solid var(--sf-emerald-light);
+  transition: border-color 0.2s ease;
+}
+
+.slidev-layout a:hover {
+  border-bottom-color: var(--sf-emerald);
+}
+
+/* Citation links inside stat cards */
+.stat-source a,
+.stat-source a:hover {
+  border-bottom: none;
+  text-decoration: underline;
+  text-decoration-color: rgba(100, 116, 139, 0.3);
+  text-underline-offset: 2px;
+}
+
+/* === Animations === */
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(16px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-.fade-in-up {
-  animation: fadeInUp 0.6s ease-out;
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
-@keyframes pulse-glow {
-
-  0%,
-  100% {
-    box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
   }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
 
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+  }
   50% {
-    box-shadow: 0 0 40px rgba(16, 185, 129, 0.6);
+    box-shadow: 0 0 0 8px rgba(16, 185, 129, 0.08);
   }
 }
 
-.pulse-glow {
-  animation: pulse-glow 2s ease-in-out infinite;
+.animate-fade-up {
+  animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-/* Mermaid Diagram Styling */
-.mermaid {
-  margin-left: auto;
-  margin-right: auto;
+.animate-scale-in {
+  animation: scaleIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-/* Code Block Enhancements */
-.slidev-layout pre {
-  border-radius: 0.75rem;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+.animate-slide-left {
+  animation: slideInLeft 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-/* Table Styling */
-.slidev-layout table {
-  width: 100%;
+.animate-pulse-glow {
+  animation: pulseGlow 3s ease-in-out infinite;
 }
 
-.slidev-layout th {
-  text-align: left;
+/* Stagger delays */
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+
+/* === v-click Override === */
+.slidev-vclick-target {
+  transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.slidev-vclick-hidden {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+/* === Gradient Text Utility === */
+.gradient-text {
+  background: linear-gradient(135deg, var(--sf-emerald) 0%, #14b8a6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* === Pill / Badge === */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.375rem 1rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
   font-weight: 600;
-  padding-bottom: 0.5rem;
-  border-bottom: 2px solid var(--pitch-primary);
+  letter-spacing: 0.02em;
 }
 
-.slidev-layout td {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+.pill--emerald {
+  background: var(--sf-emerald-light);
+  color: var(--sf-emerald-deep);
 }
 
-/* Link Styling */
-.slidev-layout a {
-  color: rgb(74 222 128);
-  text-decoration: none;
-  border-bottom: 1px dashed currentColor;
-  transition: color 0.2s ease;
+.pill--blue {
+  background: #dbeafe;
+  color: var(--sf-blue-deep);
 }
 
-.slidev-layout a:hover {
-  color: rgb(134 239 172);
+/* === Divider === */
+.sf-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(15, 23, 42, 0.08), transparent);
+  margin: 1rem 0;
 }
 
-/* Print Styles for PDF Export */
+/* === Quote Block === */
+.sf-quote {
+  position: relative;
+  padding: 1rem 1.5rem;
+  background: var(--sf-surface);
+  border-radius: var(--sf-radius-sm);
+  box-shadow: var(--sf-shadow-card);
+  border-left: 3px solid var(--sf-emerald);
+  font-style: italic;
+  color: var(--sf-slate-mid);
+}
+
+.sf-quote::before {
+  content: '\201C';
+  position: absolute;
+  top: -0.25rem;
+  left: 0.75rem;
+  font-size: 2.5rem;
+  color: var(--sf-emerald-light);
+  font-family: Georgia, serif;
+  line-height: 1;
+}
+
+/* === Print / Export === */
 @media print {
-  .pitch-card {
-    box-shadow: none;
-    border: 1px solid #e5e7eb;
+  .slidev-page {
+    background: white !important;
   }
 
-  .stat-box {
-    backdrop-filter: none;
-    background-color: #f3f4f6;
+  .stat-card,
+  .competitor-card,
+  .hero-card,
+  .tier-card,
+  .phone-frame {
+    box-shadow: none;
+    border: 1px solid #e2e8f0;
   }
 
   * {
@@ -176,68 +529,9 @@
   }
 }
 
-/* Dark Mode Specific Adjustments */
-.dark .slidev-layout {
-  color: rgb(243 244 246);
-}
-
-.dark .pitch-card {
-  background-color: rgb(31 41 55);
-  border-color: rgb(55 65 81);
-}
-
-/* Responsive Typography */
-@media (max-width: 768px) {
-  .slidev-layout h1 {
-    font-size: 2.25rem;
-  }
-
-  .slidev-layout h2 {
-    font-size: 1.5rem;
-  }
-
-  .stat-box .text-6xl {
-    font-size: 2.25rem;
-  }
-}
-
-/* Slide-specific Enhancements */
-.slidev-layout.cover {
-  background-size: cover;
-  background-position: center;
-}
-
-.slidev-layout.statement {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: radial-gradient(circle at center, rgba(16, 185, 129, 0.1) 0%, transparent 70%);
-}
-
-/* Custom Bullet Points */
-.slidev-layout ul {
-  list-style: none;
-}
-
-.slidev-layout li {
-  position: relative;
-  padding-left: 1.5rem;
-}
-
-.slidev-layout li::before {
-  content: "▸";
-  position: absolute;
-  left: 0;
-  color: rgb(74 222 128);
-  font-weight: bold;
-}
-
-/* v-click Animation Override */
-.slidev-vclick-target {
-  transition: all 0.5s ease;
-}
-
-.slidev-vclick-hidden {
-  opacity: 0;
-  transform: translateY(1rem);
+/* === Code Block === */
+.slidev-layout pre {
+  border-radius: var(--sf-radius-sm);
+  box-shadow: var(--sf-shadow-card);
+  border: 1px solid rgba(15, 23, 42, 0.06);
 }

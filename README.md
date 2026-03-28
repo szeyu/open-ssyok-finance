@@ -31,7 +31,7 @@ flowchart LR
 |--------|---------|--------|
 | [`frontend/`](./frontend/) | Flutter mobile app | Built |
 | [`backend/`](./backend/) | Cloud Functions + Gemini AI agent | Built |
-| [`slidev-pitch-deck/`](./slidev-pitch-deck/) | KitaHack pitch presentation | In Progress |
+| [`slidev-pitch-deck/`](./slidev-pitch-deck/) | KitaHack pitch presentation | Done |
 
 ## How It Works
 
@@ -350,7 +350,7 @@ Cloud Functions don't persist state between requests, so each request creates a 
 
 **Near-term (2026):**
 - Launch Android app on Google Play Store
-- Premium subscription (ssyok+ AI at RM 4.90/month) for unlimited Gemini chat
+- Premium subscription (ssyok+ AI at RM 4.90/month) for 100 AI responses/month
 - University partnerships across Malaysian campuses
 - Firebase Analytics for usage tracking + Crashlytics for stability
 
@@ -379,9 +379,9 @@ Cloud Functions don't persist state between requests, so each request creates a 
 
 Young Malaysians are **functionally financially excluded**. They have access to financial services but lack the literacy to use them effectively.
 
-The numbers paint a dire picture: **96% of Malaysians have a bank account** (BNM), yet only **39% meet the OECD's minimum financial literacy target** (OECD/INFE 2023). The consequence is devastating. Over **50,000 youths aged 30 and below are trapped in a debt spiral**, collectively owing **RM 1.9 billion** (AKPK April 2024). In 2024 alone, **877 youth bankruptcy cases** were recorded (Malaysia Insolvency Department), and **50% of Malaysians cannot survive 3 months without income** (BNM 2024).
+The numbers paint a dire picture: **89% of Malaysians have a bank account** (World Bank Findex 2024), yet Malaysia's financial literacy score is just **59.1 out of 100** (BNM FCI Survey 2024, MYFLIC Index). The consequence is devastating. Over **53,000 youths aged 30 and below are trapped in a debt spiral**, collectively owing **RM 1.9 billion** (AKPK, October 2024). In 2024 alone, **877 youth bankruptcy cases** were recorded (Malaysia Insolvency Department), and **50% of Malaysians cannot survive 3 months without income** (BNM 2024).
 
-The core problem is this: **giving someone a bank account without financial education is like giving them a car without teaching them to drive.** Existing solutions fail because generic expense tracking apps (like Money Lover or Spendee) are foreign context, boring, and provide no guidance. Bank apps (MAE, CIMB Clicks) are corporate, intimidating, and focused on selling products. Professional Certified Financial Planners (CFPs) cost **RM 200 to 500 per hour**, making them inaccessible to youth. And the only youth friendly fintech, **Raiz Malaysia**, exited the Malaysian market in September 2024, leaving users stranded.
+The core problem is this: **giving someone a bank account without financial education is like giving them a car without teaching them to drive.** Existing solutions fail because generic expense tracking apps (like Money Lover or Spendee) are foreign context, boring, and provide no guidance. Bank apps (MAE, CIMB Clicks) are corporate, intimidating, and focused on selling products. Professional Certified Financial Planners (CFPs) cost **RM 300 to 600 per hour**, making them inaccessible to youth. And the only youth friendly fintech, **Raiz Malaysia**, exited the Malaysian market in September 2024, leaving users stranded.
 
 ssyok Finance solves this by being a **free, AI powered Virtual Certified Financial Planner** that provides the same quality of personalized financial guidance that a human CFP offers, but accessible 24/7, in plain language young Malaysians understand, with hyper local context (EPF, PTPTN, Mamak budgets, RM denominated advice).
 
@@ -399,12 +399,12 @@ ssyok Finance solves this by being a **free, AI powered Virtual Certified Financ
 <details>
 <summary><strong>How does the problem relate to your chosen SDG target(s)?</strong></summary>
 
-SDG 8 Target 8.10 calls for expanding "access to financial services for all." In Malaysia, **access** is not the problem. 96% have bank accounts and 88% use e-wallets. The real gap is **understanding**. Financial access without financial literacy creates a paradox: people have the tools but don't know how to use them effectively.
+SDG 8 Target 8.10 calls for expanding "access to financial services for all." In Malaysia, **access** is not the problem. 89% have bank accounts (World Bank Findex 2024). The real gap is **understanding**. Financial access without financial literacy creates a paradox: people have the tools but don't know how to use them effectively.
 
 The data validates this directly:
 
-- **MYFLIC Index 2024**: Malaysia's financial literacy index is 59.1/100 (BNM Financial Capability & Inclusion Survey 2024), with only 39% meeting the OECD minimum target.
-- **Youth Debt Crisis**: 50,000+ youths under 30 owe RM 1.9B (AKPK April 2024). The primary cause is personal loans at 46.4% (Insolvency Department 2024).
+- **MYFLIC Index 2024**: Malaysia's financial literacy index is 59.1/100 (BNM Financial Capability & Inclusion Survey 2024) — a failing grade.
+- **Youth Debt Crisis**: 53,000+ youths under 30 owe RM 1.9B (AKPK, October 2024). The primary cause is personal loans at 46.4% (Insolvency Department 2024).
 - **Bankruptcies**: 5,272 youth bankruptcies recorded between 2020 and 2025, with 877 in 2024 alone.
 - **No Resilience**: 50% of Malaysians cannot survive 3 months without income (BNM 2024). 55.6% of Debt Management Programme enrollees are aged 20 to 39 (AKPK 2022).
 
@@ -449,7 +449,7 @@ When we prototyped a button that lets users tap any metric and ask Gemini to exp
 
 **Change 1: Malaysian Context in Every Prompt**
 - **Feedback**: "The AI sounds like a foreign advisor, not Malaysian."
-- **What we modified**: We rewrote the entire system instruction for our Gemini agent to include Malaysian specific financial references, including EPF contribution rules, ASB guaranteed returns, PTPTN 1% service charge, Tabung Haji, mamak meal budgets, LRT/MRT commute costs, and RM denominated examples. The AI now responds with phrasing like "Boss, your Kopi ais is cutting into your House fund" instead of generic advice.
+- **What we modified**: We rewrote the entire system instruction for our Gemini agent to include Malaysian specific financial references, including EPF contribution rules, ASB guaranteed returns, PTPTN 1% service charge, Tabung Haji, mamak meal budgets, LRT/MRT commute costs, and RM denominated examples. The AI now responds with phrasing like "Your Food & Dining is 35% of income — cut by RM 200/month and you'll hit your House goal 8 months faster" instead of generic advice.
 - **Result**: Testers in follow-up sessions described the AI as "feeling like a knowledgeable kawan (friend)," which was exactly our target persona.
 
 **Change 2: "Chat About This" Shortcut on Every Dashboard Metric**
@@ -563,7 +563,7 @@ In short: without AI, ssyok Finance becomes **yet another generic expense tracke
 Every financial planning app uses the government's CPI (currently ~3%) for inflation projections. But CPI is an *average*. A student spending 40% on food has different inflation than a retiree spending 40% on healthcare. ssyok Finance calculates a **personal inflation rate** based on the user's actual expense categories and their category-specific inflation rates. This means financial goals are based on *your* reality, not national averages.
 
 **2. Virtual CFP Model (Not a Chatbot):**
-We don't position our AI as a "chatbot." It's a **Virtual Certified Financial Planner** that delivers the same quality of advice that costs RM 200 to 500 per hour from a human CFP, but free and available 24/7. The AI has the user's full financial profile context, so every response is personalized advice, not generic tips.
+We don't position our AI as a "chatbot." It's a **Virtual Certified Financial Planner** that delivers the same quality of advice that costs RM 300 to 600 per hour from a human CFP, but free and available 24/7. The AI has the user's full financial profile context, so every response is personalized advice, not generic tips.
 
 **3. Hyper-Local Malaysian Context:**
 Our system prompt is engineered with Malaysian-specific financial instruments (EPF, PTPTN, ASB, Tabung Haji, PRS), local cost of living references (mamak meals, LRT/MRT, rental benchmarks), and Manglish tone. The AI doesn't just speak English. It speaks *Malaysian*.
@@ -682,7 +682,7 @@ When we first integrated Gemini, the AI gave technically correct but culturally 
 
 4. Finally, we ensured the user's **full financial profile** (assets, debts, expenses, goals) is injected into every prompt so Gemini doesn't just know about Malaysia generically. It knows about **this specific user's Malaysian financial situation**.
 
-**Solution:** A carefully engineered system instruction (38 lines of Malaysian financial context) combined with per-request user data injection. The result: responses like *"Boss, your Kopi ais is cutting into your House fund"* instead of *"Consider reducing discretionary spending."*
+**Solution:** A carefully engineered system instruction (38 lines of Malaysian financial context) combined with per-request user data injection. The result: responses like *"Your Food & Dining is 35% of income — cut by RM 200/month and you'll hit your House goal 8 months faster"* instead of *"Consider reducing discretionary spending."*
 
 </details>
 
@@ -703,6 +703,31 @@ Some financial calculations (like Personal Inflation Rate) currently use hardcod
 ---
 
 #### Scalability (10 Points)
+
+<details>
+<summary><strong>Explain how the current technical architecture supports scaling or can be adapted for a larger audience.</strong></summary>
+
+Our entire stack is **serverless and fully managed by Google**, which means scaling is built-in from day one — not something we need to re-architect for later.
+
+| Component | How it scales | Limit |
+|-----------|--------------|-------|
+| **Cloud Firestore** | Automatic horizontal sharding. Our per-user document structure (`users/{uid}/assets`, `goals`, `debts`, `expenses`) means each user's data is isolated — adding 100K users requires zero infrastructure changes. | 10,000 writes/sec per database (can increase with sharding) |
+| **Cloud Functions** | Auto-scales from 0 to thousands of concurrent instances. Each `/chat` request is independent and stateless — no shared memory or session state. | 1,000 concurrent instances (configurable) |
+| **Firebase Auth** | Fully managed by Google. Handles millions of authentications out of the box. | No practical limit |
+| **Gemini 2.5 Flash** | Designed for high-throughput, low-latency inference. Rate limits apply but are generous for Flash tier. | Rate-limited per project (upgradeable to Vertex AI provisioned throughput) |
+
+**Why stateless architecture matters:** Each chat request creates a fresh ADK session with `InMemoryRunner`. Conversation history is replayed in the prompt, not stored in server memory. This means Cloud Functions can scale horizontally with zero coordination — every instance is identical and independent.
+
+**Minor changes needed for 100x scale:**
+
+1. **Gemini rate limits** — Switch from Google AI Studio key to **Vertex AI endpoint** with provisioned throughput. This is a configuration change in `agent.ts` (swap the model endpoint), not an architecture change.
+2. **Multi-region deployment** — Deploy Cloud Functions to `asia-southeast2` (Jakarta) alongside `asia-southeast1` (Singapore) for lower latency across Southeast Asia. Firebase supports multi-region natively.
+3. **Response caching** — Add **Cloud Memorystore** to cache common financial education questions (e.g., "What is EPF?"), reducing Gemini API calls by ~30% and lowering cost-per-user.
+4. **Cost scaling** — The **ssyok+ AI subscription** (RM 4.90/month) funds Gemini API usage proportionally. More paying users = more API budget. Free-tier users have 5 AI responses per month; ssyok+ AI subscribers get 100 per month.
+
+**The key point: nothing in our current stack requires re-architecting to handle a larger audience.** Firestore, Cloud Functions, Firebase Auth, and Gemini API all scale automatically. We just pay more as usage grows — and the subscription model covers that.
+
+</details>
 
 <details>
 <summary><strong>Outline the future steps for your project and how you plan to expand it for a larger audience.</strong></summary>
