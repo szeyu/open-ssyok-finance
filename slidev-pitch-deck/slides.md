@@ -337,14 +337,8 @@ transition: fade
 
 <!-- Dashboard -->
 <div class="flex flex-col items-center animate-fade-up delay-1">
-<div class="phone-frame w-full flex items-center justify-center" style="height: 340px; background: linear-gradient(180deg, #ecfdf5, #f0fdf4);">
-
-<!-- Replace with: <img src="/screenshots/dashboard.png" class="w-full h-full object-cover" /> -->
-<div class="text-center" style="color: var(--sf-slate-soft);">
-<div class="text-4xl mb-3">📊</div>
-<div class="text-xs font-mono">Dashboard</div>
-</div>
-
+<div class="phone-frame w-full overflow-hidden" style="height: 340px;">
+<img src="/networth track.png" class="w-full h-full object-cover object-top" />
 </div>
 <div class="mt-4 text-center">
 <div class="font-bold text-sm" style="color: var(--sf-slate);">Net Worth Overview</div>
@@ -354,14 +348,8 @@ transition: fade
 
 <!-- Goals -->
 <div class="flex flex-col items-center animate-fade-up delay-2">
-<div class="phone-frame w-full flex items-center justify-center" style="height: 340px; background: linear-gradient(180deg, #eff6ff, #dbeafe);">
-
-<!-- Replace with: <img src="/screenshots/goals.png" class="w-full h-full object-cover" /> -->
-<div class="text-center" style="color: var(--sf-slate-soft);">
-<div class="text-4xl mb-3">🎯</div>
-<div class="text-xs font-mono">Goals</div>
-</div>
-
+<div class="phone-frame w-full overflow-hidden" style="height: 340px;">
+<img src="/goal track.png" class="w-full h-full object-cover object-top" />
 </div>
 <div class="mt-4 text-center">
 <div class="font-bold text-sm" style="color: var(--sf-slate);">Smart Goal Tracking</div>
@@ -371,14 +359,8 @@ transition: fade
 
 <!-- AI Chat -->
 <div class="flex flex-col items-center animate-fade-up delay-3">
-<div class="phone-frame w-full flex items-center justify-center" style="height: 340px; background: linear-gradient(180deg, #f5f3ff, #ede9fe);">
-
-<!-- Replace with: <img src="/screenshots/ai-chat.png" class="w-full h-full object-cover" /> -->
-<div class="text-center" style="color: var(--sf-slate-soft);">
-<div class="text-4xl mb-3">🤖</div>
-<div class="text-xs font-mono">AI Chat</div>
-</div>
-
+<div class="phone-frame w-full overflow-hidden" style="height: 340px;">
+<img src="/gemini chat.png" class="w-full h-full object-cover object-top" />
 </div>
 <div class="mt-4 text-center">
 <div class="font-bold text-sm" style="color: var(--sf-slate);">Gemini AI Advisor</div>
