@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ssyok_finance/core/extensions/double_extensions.dart';
 import 'package:ssyok_finance/features/dashboard/domain/projection_model.dart';
 import 'package:ssyok_finance/features/dashboard/presentation/providers/projection_providers.dart';
+import 'package:ssyok_finance/features/dashboard/presentation/widgets/net_worth_projection_card.dart';
 
 void showProjectionDetailSheet(BuildContext context) {
   showModalBottomSheet(
@@ -30,7 +31,8 @@ class _ProjectionDetailSheet extends ConsumerWidget {
         return Container(
           decoration: BoxDecoration(
             color: theme.colorScheme.surface,
-            borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
+            borderRadius:
+                const BorderRadius.vertical(top: Radius.circular(20)),
           ),
           child: Column(
             children: [
@@ -49,7 +51,8 @@ class _ProjectionDetailSheet extends ConsumerWidget {
 
               // Header with toggle
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
                 child: Row(
                   children: [
                     Expanded(
@@ -60,66 +63,68 @@ class _ProjectionDetailSheet extends ConsumerWidget {
                         ),
                       ),
                     ),
-                    SegmentedButton<ProjectionMode>(
-                      segments: const [
-                        ButtonSegment(
-                          value: ProjectionMode.nominal,
-                          label: Text('Nominal'),
-                        ),
-                        ButtonSegment(
-                          value: ProjectionMode.real,
-                          label: Text('Real'),
-                        ),
-                      ],
-                      selected: {mode},
-                      onSelectionChanged: (selected) {
-                        ref.read(projectionModeProvider.notifier).state =
-                            selected.first;
-                      },
-                      style: ButtonStyle(
-                        visualDensity: VisualDensity.compact,
-                        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                        textStyle: WidgetStatePropertyAll(
-                          theme.textTheme.labelSmall,
-                        ),
-                      ),
-                    ),
+                    buildModeToggle(theme, ref, mode),
                   ],
                 ),
               ),
 
               // Column headers
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 4),
+              Container(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+                decoration: BoxDecoration(
+                  border: Border(
+                    bottom: BorderSide(
+                      color: theme.colorScheme.outlineVariant
+                          .withValues(alpha: 0.5),
+                    ),
+                  ),
+                ),
                 child: Row(
                   children: [
                     SizedBox(
                       width: 32,
-                      child: Text('Yr', style: theme.textTheme.labelSmall),
+                      child: Text('Yr',
+                          style: theme.textTheme.labelSmall?.copyWith(
+                            fontWeight: FontWeight.w600,
+                            color: theme.colorScheme.onSurfaceVariant,
+                          )),
                     ),
                     SizedBox(
-                      width: 32,
-                      child: Text('Age', style: theme.textTheme.labelSmall),
+                      width: 36,
+                      child: Text('Age',
+                          style: theme.textTheme.labelSmall?.copyWith(
+                            fontWeight: FontWeight.w600,
+                            color: theme.colorScheme.onSurfaceVariant,
+                          )),
                     ),
                     Expanded(
                       child: Text('Assets',
-                          style: theme.textTheme.labelSmall,
+                          style: theme.textTheme.labelSmall?.copyWith(
+                            fontWeight: FontWeight.w600,
+                            color: theme.colorScheme.onSurfaceVariant,
+                          ),
                           textAlign: TextAlign.right),
                     ),
                     Expanded(
                       child: Text('Debts',
-                          style: theme.textTheme.labelSmall,
+                          style: theme.textTheme.labelSmall?.copyWith(
+                            fontWeight: FontWeight.w600,
+                            color: theme.colorScheme.onSurfaceVariant,
+                          ),
                           textAlign: TextAlign.right),
                     ),
                     Expanded(
                       child: Text('Net Worth',
-                          style: theme.textTheme.labelSmall,
+                          style: theme.textTheme.labelSmall?.copyWith(
+                            fontWeight: FontWeight.w600,
+                            color: theme.colorScheme.onSurfaceVariant,
+                          ),
                           textAlign: TextAlign.right),
                     ),
                   ],
                 ),
               ),
-              const Divider(height: 1),
 
               // Year rows
               Expanded(
@@ -134,12 +139,21 @@ class _ProjectionDetailSheet extends ConsumerWidget {
                     final isCurrentYear = index == 0;
 
                     return Container(
-                      color: isCurrentYear
-                          ? theme.colorScheme.primaryContainer
-                              .withValues(alpha: 0.3)
-                          : index.isOdd
-                              ? theme.colorScheme.surfaceContainerLowest
-                              : null,
+                      decoration: BoxDecoration(
+                        color: isCurrentYear
+                            ? theme.colorScheme.primary.withValues(alpha: 0.06)
+                            : index.isOdd
+                                ? theme.colorScheme.surfaceContainerLowest
+                                : null,
+                        border: isCurrentYear
+                            ? Border(
+                                left: BorderSide(
+                                  color: theme.colorScheme.primary,
+                                  width: 3,
+                                ),
+                              )
+                            : null,
+                      ),
                       padding: const EdgeInsets.symmetric(
                           horizontal: 20, vertical: 10),
                       child: Column(
@@ -159,10 +173,12 @@ class _ProjectionDetailSheet extends ConsumerWidget {
                                 ),
                               ),
                               SizedBox(
-                                width: 32,
+                                width: 36,
                                 child: Text(
                                   '${p.age}',
-                                  style: theme.textTheme.bodySmall,
+                                  style: theme.textTheme.bodySmall?.copyWith(
+                                    color: theme.colorScheme.onSurfaceVariant,
+                                  ),
                                 ),
                               ),
                               Expanded(
@@ -170,7 +186,8 @@ class _ProjectionDetailSheet extends ConsumerWidget {
                                   p.totalAssets
                                       .toRinggit(showDecimals: false),
                                   style: theme.textTheme.bodySmall?.copyWith(
-                                    color: Colors.green.shade700,
+                                    color: const Color(0xFF059669),
+                                    fontWeight: FontWeight.w500,
                                   ),
                                   textAlign: TextAlign.right,
                                 ),
@@ -180,7 +197,8 @@ class _ProjectionDetailSheet extends ConsumerWidget {
                                   p.totalDebts
                                       .toRinggit(showDecimals: false),
                                   style: theme.textTheme.bodySmall?.copyWith(
-                                    color: Colors.red.shade700,
+                                    color: const Color(0xFFDC2626),
+                                    fontWeight: FontWeight.w500,
                                   ),
                                   textAlign: TextAlign.right,
                                 ),
@@ -198,7 +216,7 @@ class _ProjectionDetailSheet extends ConsumerWidget {
                           ),
                           if (p.milestones.isNotEmpty)
                             Padding(
-                              padding: const EdgeInsets.only(top: 4),
+                              padding: const EdgeInsets.only(top: 6),
                               child: Wrap(
                                 spacing: 6,
                                 runSpacing: 4,
@@ -207,22 +225,26 @@ class _ProjectionDetailSheet extends ConsumerWidget {
                                       m.type == MilestoneType.goalReached;
                                   return Container(
                                     padding: const EdgeInsets.symmetric(
-                                        horizontal: 8, vertical: 2),
+                                        horizontal: 8, vertical: 3),
                                     decoration: BoxDecoration(
                                       color: isGoal
-                                          ? Colors.blue.shade50
-                                          : Colors.green.shade50,
-                                      borderRadius: BorderRadius.circular(8),
+                                          ? const Color(0xFF3B82F6)
+                                              .withValues(alpha: 0.1)
+                                          : const Color(0xFF059669)
+                                              .withValues(alpha: 0.1),
+                                      borderRadius: BorderRadius.circular(6),
                                     ),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.min,
                                       children: [
                                         Icon(
-                                          isGoal ? Icons.flag : Icons.check_circle,
+                                          isGoal
+                                              ? Icons.flag_rounded
+                                              : Icons.check_circle_rounded,
                                           size: 12,
                                           color: isGoal
-                                              ? Colors.blue.shade700
-                                              : Colors.green.shade700,
+                                              ? const Color(0xFF2563EB)
+                                              : const Color(0xFF059669),
                                         ),
                                         const SizedBox(width: 4),
                                         Text(
@@ -230,8 +252,9 @@ class _ProjectionDetailSheet extends ConsumerWidget {
                                           style: theme.textTheme.labelSmall
                                               ?.copyWith(
                                             color: isGoal
-                                                ? Colors.blue.shade700
-                                                : Colors.green.shade700,
+                                                ? const Color(0xFF1D4ED8)
+                                                : const Color(0xFF047857),
+                                            fontWeight: FontWeight.w600,
                                           ),
                                         ),
                                       ],

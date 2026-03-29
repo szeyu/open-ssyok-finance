@@ -119,7 +119,9 @@ class DashboardScreen extends ConsumerWidget {
           end: Alignment.bottomRight,
           colors: [
             theme.colorScheme.primary,
-            theme.colorScheme.primaryContainer,
+            HSLColor.fromColor(theme.colorScheme.primary)
+                .withLightness(0.32)
+                .toColor(),
           ],
         ),
         border: Border.all(
@@ -302,20 +304,20 @@ class DashboardScreen extends ConsumerWidget {
             Expanded(
               child: _buildSummaryCard(
                 theme,
-                'Assets',
+                'Total Assets',
                 totalAssets.toRinggit(showDecimals: false),
-                Icons.trending_up,
-                Colors.green,
+                Icons.trending_up_rounded,
+                const Color(0xFF059669),
               ),
             ),
             const SizedBox(width: 12),
             Expanded(
               child: _buildSummaryCard(
                 theme,
-                'Debts',
+                'Total Debts',
                 totalDebts.toRinggit(showDecimals: false),
-                Icons.credit_card,
-                Colors.red,
+                Icons.credit_card_rounded,
+                const Color(0xFFDC2626),
               ),
             ),
           ],
@@ -326,10 +328,10 @@ class DashboardScreen extends ConsumerWidget {
             Expanded(
               child: _buildSummaryCard(
                 theme,
-                'Monthly Expenses',
+                'Monthly Exp.',
                 totalExpenses.toRinggit(showDecimals: false),
-                Icons.receipt,
-                Colors.orange,
+                Icons.receipt_long_rounded,
+                const Color(0xFFD97706),
               ),
             ),
             const SizedBox(width: 12),
@@ -338,8 +340,8 @@ class DashboardScreen extends ConsumerWidget {
                 theme,
                 'Active Goals',
                 '$activeGoals',
-                Icons.flag,
-                Colors.blue,
+                Icons.flag_rounded,
+                const Color(0xFF2563EB),
               ),
             ),
           ],
@@ -361,7 +363,7 @@ class DashboardScreen extends ConsumerWidget {
         borderRadius: BorderRadius.circular(16),
         boxShadow: AppShadows.card,
         border: Border(
-          left: BorderSide(color: color.withValues(alpha: 0.6), width: 2.5),
+          left: BorderSide(color: color, width: 3),
         ),
       ),
       child: Padding(
@@ -371,18 +373,29 @@ class DashboardScreen extends ConsumerWidget {
           children: [
             Row(
               children: [
-                Icon(icon, size: 18, color: color),
+                Container(
+                  width: 28,
+                  height: 28,
+                  decoration: BoxDecoration(
+                    color: color.withValues(alpha: 0.1),
+                    borderRadius: BorderRadius.circular(7),
+                  ),
+                  child: Icon(icon, size: 16, color: color),
+                ),
                 const SizedBox(width: 8),
                 Expanded(
                   child: Text(
                     label,
-                    style: theme.textTheme.bodySmall,
+                    style: theme.textTheme.labelSmall?.copyWith(
+                      color: theme.colorScheme.onSurfaceVariant,
+                      fontWeight: FontWeight.w600,
+                    ),
                     overflow: TextOverflow.ellipsis,
                   ),
                 ),
               ],
             ),
-            const SizedBox(height: 6),
+            const SizedBox(height: 8),
             Text(
               value,
               style: theme.textTheme.headlineSmall?.copyWith(

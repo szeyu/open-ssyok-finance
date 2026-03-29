@@ -39,8 +39,17 @@ class ExpensesScreen extends ConsumerWidget {
             children: [
               // Total bar
               Container(
-                padding: const EdgeInsets.all(16),
-                color: theme.colorScheme.secondaryContainer,
+                padding: const EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: [
+                      const Color(0xFFD97706),
+                      const Color(0xFFB45309),
+                    ],
+                  ),
+                ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -50,23 +59,32 @@ class ExpensesScreen extends ConsumerWidget {
                         Text(
                           'Total Monthly',
                           style: theme.textTheme.labelMedium?.copyWith(
-                            color: theme.colorScheme.onSecondaryContainer,
+                            color: Colors.white.withValues(alpha: 0.85),
                           ),
                         ),
+                        const SizedBox(height: 4),
                         Text(
                           totalExpenses.toRinggit(),
                           style: theme.textTheme.headlineSmall?.copyWith(
-                            color: theme.colorScheme.onSecondaryContainer,
-                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                            fontWeight: FontWeight.w800,
                           ),
                         ),
                       ],
                     ),
-                    Text(
-                      '${totalExpenses.toRinggit()}/month',
-                      style: theme.textTheme.bodySmall?.copyWith(
-                        color: theme.colorScheme.onSecondaryContainer
-                            .withValues(alpha: 0.8),
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 12, vertical: 6),
+                      decoration: BoxDecoration(
+                        color: Colors.white.withValues(alpha: 0.15),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Text(
+                        '/month',
+                        style: theme.textTheme.labelMedium?.copyWith(
+                          color: Colors.white.withValues(alpha: 0.9),
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
                     ),
                   ],
