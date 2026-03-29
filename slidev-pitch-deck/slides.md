@@ -471,60 +471,36 @@ flowchart TB
 
 <div class="competitor-card p-4">
 
-<div class="text-xs font-mono mb-3" style="color: var(--sf-slate-soft); letter-spacing: 0.06em;">RESULTS — ssyok vs GENERIC (avg of 5 prompts, 1–5 scale)</div>
+<div class="text-xs font-mono mb-3" style="color: var(--sf-slate-soft); letter-spacing: 0.06em;">RESULTS — ssyok vs GENERIC (GPT-5 judge, avg of 5 prompts)</div>
 
-<div class="space-y-2 text-xs">
+<img src="/llm eval.png" class="w-full rounded-lg mb-3" style="box-shadow: 0 2px 8px rgba(15,23,42,0.1); max-height: 160px; object-fit: cover; object-position: top;" />
 
-<div>
-<div class="flex justify-between mb-1">
-<span style="color: var(--sf-slate);">Financial Accuracy</span>
-<span><span style="color: var(--sf-slate-soft);">Generic 3.4</span> → <span class="font-bold" style="color: var(--sf-emerald);">ssyok 4.6</span></span>
-</div>
-<div style="background: #e2e8f0; border-radius: 4px; height: 6px; position: relative;">
-<div style="background: #94a3b8; width: 68%; height: 6px; border-radius: 4px; position: absolute;"></div>
-<div style="background: var(--sf-emerald); width: 92%; height: 6px; border-radius: 4px; position: absolute; opacity: 0.8;"></div>
-</div>
+<div class="grid grid-cols-2 gap-2 text-xs">
+
+<div class="hero-card p-2 text-center">
+<div class="text-lg font-extrabold gradient-text">+35%</div>
+<div class="font-bold" style="color: var(--sf-emerald-deep);">Malaysian Context</div>
+<div style="color: var(--sf-slate-soft);">3.40 → 4.60 / 5</div>
 </div>
 
-<div class="mt-2">
-<div class="flex justify-between mb-1">
-<span style="color: var(--sf-slate);">Malaysian Context</span>
-<span><span style="color: var(--sf-slate-soft);">Generic 1.4</span> → <span class="font-bold" style="color: var(--sf-emerald);">ssyok 4.8</span></span>
-</div>
-<div style="background: #e2e8f0; border-radius: 4px; height: 6px; position: relative;">
-<div style="background: #94a3b8; width: 28%; height: 6px; border-radius: 4px; position: absolute;"></div>
-<div style="background: var(--sf-emerald); width: 96%; height: 6px; border-radius: 4px; position: absolute; opacity: 0.8;"></div>
-</div>
+<div class="stat-card p-2 text-center">
+<div class="text-lg font-extrabold" style="color: var(--sf-blue);">4.80 / 5</div>
+<div class="font-bold" style="color: var(--sf-blue-deep);">Safety (tied)</div>
+<div style="color: var(--sf-slate-soft);">Both models responsible</div>
 </div>
 
-<div class="mt-2">
-<div class="flex justify-between mb-1">
-<span style="color: var(--sf-slate);">Actionability</span>
-<span><span style="color: var(--sf-slate-soft);">Generic 3.2</span> → <span class="font-bold" style="color: var(--sf-emerald);">ssyok 4.6</span></span>
-</div>
-<div style="background: #e2e8f0; border-radius: 4px; height: 6px; position: relative;">
-<div style="background: #94a3b8; width: 64%; height: 6px; border-radius: 4px; position: absolute;"></div>
-<div style="background: var(--sf-emerald); width: 92%; height: 6px; border-radius: 4px; position: absolute; opacity: 0.8;"></div>
-</div>
+<div class="competitor-card p-2 text-center">
+<div class="text-lg font-extrabold" style="color: var(--sf-slate);">4.00</div>
+<div class="font-bold" style="color: var(--sf-slate-mid);">ssyok Overall</div>
+<div style="color: var(--sf-slate-soft);">vs Generic 3.90 / 5</div>
 </div>
 
-<div class="mt-2">
-<div class="flex justify-between mb-1">
-<span style="color: var(--sf-slate);">Safety</span>
-<span><span style="color: var(--sf-slate-soft);">Generic 4.2</span> → <span class="font-bold" style="color: var(--sf-emerald);">ssyok 4.9</span></span>
-</div>
-<div style="background: #e2e8f0; border-radius: 4px; height: 6px; position: relative;">
-<div style="background: #94a3b8; width: 84%; height: 6px; border-radius: 4px; position: absolute;"></div>
-<div style="background: var(--sf-emerald); width: 98%; height: 6px; border-radius: 4px; position: absolute; opacity: 0.8;"></div>
-</div>
+<div class="competitor-card p-2 text-center">
+<div class="text-lg font-extrabold" style="color: var(--sf-purple);">GPT-5</div>
+<div class="font-bold" style="color: var(--sf-slate-mid);">Cross-vendor judge</div>
+<div style="color: var(--sf-slate-soft);">Zero self-serving bias</div>
 </div>
 
-</div>
-
-<div class="hero-card p-3 mt-4 text-center">
-<div class="text-2xl font-extrabold gradient-text">+43%</div>
-<div class="text-xs mt-1" style="color: var(--sf-slate-mid);">Overall improvement vs generic baseline</div>
-<div class="text-xs font-mono mt-1" style="color: var(--sf-slate-soft);">2.8/5 → 4.7/5 overall avg</div>
 </div>
 
 </div>
@@ -565,54 +541,12 @@ flowchart TB
 
 </div>
 
-<!-- Column 2: Feature popularity -->
-<div class="competitor-card p-4">
+<!-- Column 2: Real feedback screenshot -->
+<div class="competitor-card p-4 flex flex-col">
 
-<div class="text-xs font-mono mb-3" style="color: var(--sf-slate-soft); letter-spacing: 0.06em;">FEATURE POPULARITY (n=6)</div>
+<div class="text-xs font-mono mb-3" style="color: var(--sf-slate-soft); letter-spacing: 0.06em;">SURVEY RESULTS</div>
 
-<div class="space-y-2 text-xs">
-
-<div>
-<div class="flex justify-between mb-1">
-<span style="color: var(--sf-slate);">Dashboard / Net Worth</span>
-<span class="font-bold" style="color: var(--sf-emerald);">5/6</span>
-</div>
-<div style="background: #e2e8f0; border-radius: 4px; height: 6px;">
-<div style="background: var(--sf-emerald); width: 83%; height: 6px; border-radius: 4px;"></div>
-</div>
-</div>
-
-<div>
-<div class="flex justify-between mb-1">
-<span style="color: var(--sf-slate);">Calculators (FIRE, etc.)</span>
-<span class="font-bold" style="color: var(--sf-blue);">4/6</span>
-</div>
-<div style="background: #e2e8f0; border-radius: 4px; height: 6px;">
-<div style="background: var(--sf-blue); width: 67%; height: 6px; border-radius: 4px;"></div>
-</div>
-</div>
-
-<div>
-<div class="flex justify-between mb-1">
-<span style="color: var(--sf-slate);">Assets & Debts Tracking</span>
-<span class="font-bold" style="color: var(--sf-purple);">3/6</span>
-</div>
-<div style="background: #e2e8f0; border-radius: 4px; height: 6px;">
-<div style="background: var(--sf-purple); width: 50%; height: 6px; border-radius: 4px;"></div>
-</div>
-</div>
-
-<div>
-<div class="flex justify-between mb-1">
-<span style="color: var(--sf-slate);">Privacy / Offline Mode</span>
-<span class="font-bold" style="color: var(--sf-amber);">2/6</span>
-</div>
-<div style="background: #e2e8f0; border-radius: 4px; height: 6px;">
-<div style="background: var(--sf-amber); width: 33%; height: 6px; border-radius: 4px;"></div>
-</div>
-</div>
-
-</div>
+<img src="/ssyok FInance Feedback.png" class="w-full rounded-lg" style="object-fit: contain; flex: 1;" />
 
 </div>
 
