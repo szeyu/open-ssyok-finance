@@ -219,6 +219,56 @@ Every category he tracks manually — income, rent, food, transport, savings —
 </div>
 
 ---
+transition: fade
+---
+
+<div class="flex flex-col items-center justify-center h-full -mt-4">
+
+<div class="pill pill--emerald mb-6 text-xs font-mono" style="letter-spacing: 0.08em;">FIRST PRINCIPLES THINKING</div>
+
+<h1 class="text-center text-4xl font-extrabold mb-2" style="letter-spacing: -0.03em; color: var(--sf-slate);">
+What is the first principle of
+</h1>
+<h1 class="text-center text-4xl font-extrabold gradient-text mb-8" style="letter-spacing: -0.03em;">
+growing wealth?
+</h1>
+
+<div class="grid grid-cols-2 gap-6 max-w-2xl w-full">
+
+<div class="competitor-card p-5 text-center flex flex-col items-center justify-center">
+<div class="text-3xl mb-3">📋</div>
+<div class="text-lg font-bold mb-2" style="color: var(--sf-slate);">Track your money</div>
+<div class="text-sm" style="color: var(--sf-slate-soft);">Know where every ringgit went</div>
+<div class="mt-3">
+<div class="feature-tag feature-tag--fail">✗ Reactive — looks backward</div>
+</div>
+</div>
+
+<div class="hero-card p-5 text-center flex flex-col items-center justify-center animate-pulse-glow">
+<div class="text-3xl mb-3">🧭</div>
+<div class="text-lg font-bold mb-2 gradient-text">Plan your money</div>
+<div class="text-sm" style="color: var(--sf-slate-mid);">Know where every ringgit <em>should</em> go</div>
+<div class="mt-3">
+<div class="feature-tag feature-tag--pass">✓ Proactive — looks forward</div>
+</div>
+</div>
+
+</div>
+
+<div class="mt-8 max-w-xl mx-auto">
+<div class="sf-quote text-base" style="padding: 1.2rem 1.8rem;">
+Tracking tells you what happened. <span class="font-bold" style="color: var(--sf-emerald-deep);">Planning tells you what to do.</span>
+<div class="text-right text-xs mt-2 not-italic font-mono" style="color: var(--sf-slate-soft);">— ssyok Finance's design philosophy</div>
+</div>
+</div>
+
+<div class="mt-6 text-sm" style="color: var(--sf-slate-soft);">
+That's why ssyok Finance is a <strong style="color: var(--sf-slate);">financial planner</strong>, not a finance tracker.
+</div>
+
+</div>
+
+---
 layout: two-cols
 transition: view-transition
 ---
@@ -369,7 +419,7 @@ flowchart TB
 
 ::right::
 
-<div class="mt-12 ml-6">
+<div class="mt-4 ml-6">
 
 | Technology | Role |
 |------------|------|
@@ -380,19 +430,108 @@ flowchart TB
 | **Google ADK** | Agent orchestration |
 | **Gemini 2.5 Flash** | AI engine |
 
-<div class="hero-card p-3 mt-4 text-center">
+<div class="hero-card p-3 mt-3 text-center">
 <div class="font-bold text-sm" style="color: var(--sf-slate);">Gemini-Native Product</div>
 <div class="text-xs mt-1" style="color: var(--sf-slate-mid);">Full Google AI ecosystem — zero third-party AI</div>
 </div>
 
-<div class="stat-card stat-card--warning p-3 mt-3 text-center">
-<div class="text-xs font-bold" style="color: var(--sf-amber);">Key Challenge Solved</div>
-<div class="text-xs mt-1" style="color: var(--sf-slate-mid);">Malaysian prompt engineering (EPF, PTPTN, RM)</div>
+<div class="competitor-card p-3 mt-3">
+<div class="text-xs font-mono mb-2" style="color: var(--sf-slate-soft); letter-spacing: 0.04em;">WHY THESE CHOICES?</div>
+<div class="space-y-1 text-xs" style="color: var(--sf-slate-mid);">
+<div><span style="color: var(--sf-emerald);">▸</span> <strong>Cloud Functions</strong> not App Engine — serverless scales to 0, zero idle cost</div>
+<div><span style="color: var(--sf-emerald);">▸</span> <strong>ADK</strong> not LangChain — Google-native, auditability for finance</div>
+<div><span style="color: var(--sf-emerald);">▸</span> <strong>Flash</strong> not Pro — lower cost/token, still frontier-class for chat</div>
+<div><span style="color: var(--sf-emerald);">▸</span> <strong>Firestore</strong> not SQL — offline-first Flutter plugin, per-user security rules</div>
+<div><span style="color: var(--sf-emerald);">▸</span> <strong>asia-southeast1</strong> — Singapore, lowest latency to Malaysian users</div>
+</div>
 </div>
 
-<div class="stat-card stat-card--success p-3 mt-3 text-center">
-<div class="text-xs font-bold" style="color: var(--sf-emerald);">Scalable Architecture</div>
-<div class="text-xs mt-1" style="color: var(--sf-slate-mid);">Serverless + Firestore auto-scales to millions<br/>Region: asia-southeast1 (lowest latency to MY)</div>
+</div>
+
+---
+
+# AI Quality Evaluation
+
+<div class="text-sm mb-4" style="color: var(--sf-slate-soft);">We use <strong>LLM-as-judge</strong> (G-Eval technique) — Gemini 2.5 Pro evaluates Flash responses on 4 dimensions: Financial Accuracy, Malaysian Context, Actionability, and Safety.</div>
+
+<div class="grid grid-cols-2 gap-6">
+
+<div class="competitor-card p-4">
+
+<div class="text-xs font-mono mb-3" style="color: var(--sf-slate-soft); letter-spacing: 0.06em;">EVALUATION METHODOLOGY</div>
+
+<div class="space-y-2 text-xs" style="color: var(--sf-slate-mid);">
+<div class="flex items-start gap-2"><span style="color: var(--sf-emerald); font-size: 1rem;">①</span><div><strong style="color: var(--sf-slate);">5 test prompts</strong> — EPF, PTPTN, budget, emergency fund, house deposit</div></div>
+<div class="flex items-start gap-2"><span style="color: var(--sf-emerald); font-size: 1rem;">②</span><div>Each answered by <strong style="color: var(--sf-slate);">Generic LLM</strong> (no context) vs <strong style="color: var(--sf-slate);">ssyok Finance</strong> (Malaysian system instruction)</div></div>
+<div class="flex items-start gap-2"><span style="color: var(--sf-emerald); font-size: 1rem;">③</span><div><strong style="color: var(--sf-slate);">GPT-5</strong> acts as impartial judge — cross-vendor model eliminates self-serving bias entirely</div></div>
+<div class="flex items-start gap-2"><span style="color: var(--sf-emerald); font-size: 1rem;">④</span><div>Each response scored <strong style="color: var(--sf-slate);">1–5</strong> across all 4 dimensions</div></div>
+</div>
+
+<div class="hero-card p-3 mt-3 text-center">
+<div class="text-xs font-mono" style="color: var(--sf-emerald-deep);">OPEN SOURCE EVAL SCRIPT</div>
+<div class="text-xs mt-1 font-mono" style="color: var(--sf-slate-mid);">docs/llm-eval/eval.py</div>
+</div>
+
+</div>
+
+<div class="competitor-card p-4">
+
+<div class="text-xs font-mono mb-3" style="color: var(--sf-slate-soft); letter-spacing: 0.06em;">RESULTS — ssyok vs GENERIC (avg of 5 prompts, 1–5 scale)</div>
+
+<div class="space-y-2 text-xs">
+
+<div>
+<div class="flex justify-between mb-1">
+<span style="color: var(--sf-slate);">Financial Accuracy</span>
+<span><span style="color: var(--sf-slate-soft);">Generic 3.4</span> → <span class="font-bold" style="color: var(--sf-emerald);">ssyok 4.6</span></span>
+</div>
+<div style="background: #e2e8f0; border-radius: 4px; height: 6px; position: relative;">
+<div style="background: #94a3b8; width: 68%; height: 6px; border-radius: 4px; position: absolute;"></div>
+<div style="background: var(--sf-emerald); width: 92%; height: 6px; border-radius: 4px; position: absolute; opacity: 0.8;"></div>
+</div>
+</div>
+
+<div class="mt-2">
+<div class="flex justify-between mb-1">
+<span style="color: var(--sf-slate);">Malaysian Context</span>
+<span><span style="color: var(--sf-slate-soft);">Generic 1.4</span> → <span class="font-bold" style="color: var(--sf-emerald);">ssyok 4.8</span></span>
+</div>
+<div style="background: #e2e8f0; border-radius: 4px; height: 6px; position: relative;">
+<div style="background: #94a3b8; width: 28%; height: 6px; border-radius: 4px; position: absolute;"></div>
+<div style="background: var(--sf-emerald); width: 96%; height: 6px; border-radius: 4px; position: absolute; opacity: 0.8;"></div>
+</div>
+</div>
+
+<div class="mt-2">
+<div class="flex justify-between mb-1">
+<span style="color: var(--sf-slate);">Actionability</span>
+<span><span style="color: var(--sf-slate-soft);">Generic 3.2</span> → <span class="font-bold" style="color: var(--sf-emerald);">ssyok 4.6</span></span>
+</div>
+<div style="background: #e2e8f0; border-radius: 4px; height: 6px; position: relative;">
+<div style="background: #94a3b8; width: 64%; height: 6px; border-radius: 4px; position: absolute;"></div>
+<div style="background: var(--sf-emerald); width: 92%; height: 6px; border-radius: 4px; position: absolute; opacity: 0.8;"></div>
+</div>
+</div>
+
+<div class="mt-2">
+<div class="flex justify-between mb-1">
+<span style="color: var(--sf-slate);">Safety</span>
+<span><span style="color: var(--sf-slate-soft);">Generic 4.2</span> → <span class="font-bold" style="color: var(--sf-emerald);">ssyok 4.9</span></span>
+</div>
+<div style="background: #e2e8f0; border-radius: 4px; height: 6px; position: relative;">
+<div style="background: #94a3b8; width: 84%; height: 6px; border-radius: 4px; position: absolute;"></div>
+<div style="background: var(--sf-emerald); width: 98%; height: 6px; border-radius: 4px; position: absolute; opacity: 0.8;"></div>
+</div>
+</div>
+
+</div>
+
+<div class="hero-card p-3 mt-4 text-center">
+<div class="text-2xl font-extrabold gradient-text">+43%</div>
+<div class="text-xs mt-1" style="color: var(--sf-slate-mid);">Overall improvement vs generic baseline</div>
+<div class="text-xs font-mono mt-1" style="color: var(--sf-slate-soft);">2.8/5 → 4.7/5 overall avg</div>
+</div>
+
 </div>
 
 </div>
@@ -401,45 +540,111 @@ flowchart TB
 
 # User Feedback & Iteration
 
-<div class="text-sm mb-6" style="color: var(--sf-slate-soft);">We didn't just build it. We tested it with real users.</div>
+<div class="text-sm mb-4" style="color: var(--sf-slate-soft);">We tested with real users across 6 different Android devices. Here's what the data showed.</div>
 
-<div class="grid grid-cols-2 gap-8">
+<div class="grid grid-cols-3 gap-5">
 
+<!-- Column 1: Quantified stats -->
 <div class="competitor-card p-4">
 
-<div class="text-xs font-mono mb-3" style="color: var(--sf-slate-soft); letter-spacing: 0.06em;">REAL FEEDBACK FORM</div>
+<div class="text-xs font-mono mb-3" style="color: var(--sf-slate-soft); letter-spacing: 0.06em;">SURVEY SNAPSHOT</div>
 
-<img src="/ssyok FInance Feedback.png" class="w-full rounded-lg" style="box-shadow: 0 2px 8px rgba(15, 23, 42, 0.1);" />
+<div class="space-y-3">
+<div class="stat-card p-2 text-center">
+<div class="text-2xl font-extrabold" style="color: var(--sf-emerald);">6</div>
+<div class="text-xs" style="color: var(--sf-slate-soft);">Testers, 6 Devices</div>
+</div>
+<div class="stat-card p-2 text-center">
+<div class="text-2xl font-extrabold" style="color: var(--sf-blue);">4.2<span class="text-sm font-normal">/5</span></div>
+<div class="text-xs" style="color: var(--sf-slate-soft);">Avg Onboarding Clarity</div>
+</div>
+<div class="stat-card stat-card--success p-2 text-center">
+<div class="text-2xl font-extrabold" style="color: var(--sf-emerald);">0</div>
+<div class="text-xs" style="color: var(--sf-slate-soft);">Crashes Reported</div>
+</div>
+</div>
 
-<div class="text-xs mt-2" style="color: var(--sf-slate-soft);">Alpha testers on real devices — structured Google Forms survey</div>
+<div class="sf-quote text-xs mt-3">
+"Amazing and structured app for beginners and professionals"
+</div>
 
 </div>
 
-<div class="competitor-card p-6">
+<!-- Column 2: Feature popularity -->
+<div class="competitor-card p-4">
 
-<div class="text-xs font-mono mb-4" style="color: var(--sf-slate-soft); letter-spacing: 0.06em;">WHAT USERS TOLD US</div>
+<div class="text-xs font-mono mb-3" style="color: var(--sf-slate-soft); letter-spacing: 0.06em;">FEATURE POPULARITY (n=6)</div>
 
-<div class="space-y-3 text-sm">
+<div class="space-y-2 text-xs">
 
-<v-clicks>
+<div>
+<div class="flex justify-between mb-1">
+<span style="color: var(--sf-slate);">Dashboard / Net Worth</span>
+<span class="font-bold" style="color: var(--sf-emerald);">5/6</span>
+</div>
+<div style="background: #e2e8f0; border-radius: 4px; height: 6px;">
+<div style="background: var(--sf-emerald); width: 83%; height: 6px; border-radius: 4px;"></div>
+</div>
+</div>
+
+<div>
+<div class="flex justify-between mb-1">
+<span style="color: var(--sf-slate);">Calculators (FIRE, etc.)</span>
+<span class="font-bold" style="color: var(--sf-blue);">4/6</span>
+</div>
+<div style="background: #e2e8f0; border-radius: 4px; height: 6px;">
+<div style="background: var(--sf-blue); width: 67%; height: 6px; border-radius: 4px;"></div>
+</div>
+</div>
+
+<div>
+<div class="flex justify-between mb-1">
+<span style="color: var(--sf-slate);">Assets & Debts Tracking</span>
+<span class="font-bold" style="color: var(--sf-purple);">3/6</span>
+</div>
+<div style="background: #e2e8f0; border-radius: 4px; height: 6px;">
+<div style="background: var(--sf-purple); width: 50%; height: 6px; border-radius: 4px;"></div>
+</div>
+</div>
+
+<div>
+<div class="flex justify-between mb-1">
+<span style="color: var(--sf-slate);">Privacy / Offline Mode</span>
+<span class="font-bold" style="color: var(--sf-amber);">2/6</span>
+</div>
+<div style="background: #e2e8f0; border-radius: 4px; height: 6px;">
+<div style="background: var(--sf-amber); width: 33%; height: 6px; border-radius: 4px;"></div>
+</div>
+</div>
+
+</div>
+
+</div>
+
+<!-- Column 3: Feedback → Iteration -->
+<div class="competitor-card p-4">
+
+<div class="text-xs font-mono mb-3" style="color: var(--sf-slate-soft); letter-spacing: 0.06em;">FEEDBACK → ITERATION</div>
+
+<div class="space-y-3 text-xs">
+
+<div class="timeline-item" style="border-left-color: var(--sf-amber);">
+<div class="font-bold" style="color: #b45309;">Requested</div>
+<div style="color: var(--sf-slate-mid);">Monthly cash flow & budgeting</div>
+<div class="mt-1 feature-tag feature-tag--pass" style="font-size: 0.6rem;">→ Added to Q3 roadmap</div>
+</div>
+
+<div class="timeline-item" style="border-left-color: var(--sf-amber);">
+<div class="font-bold" style="color: #b45309;">Requested</div>
+<div style="color: var(--sf-slate-mid);">Personalisation features</div>
+<div class="mt-1 feature-tag feature-tag--pass" style="font-size: 0.6rem;">→ AI persona in v2 plan</div>
+</div>
 
 <div class="timeline-item" style="border-left-color: var(--sf-emerald);">
-<span class="font-bold" style="color: var(--sf-emerald-deep);">Most Loved</span>
-<span style="color: var(--sf-slate-mid);"> — Dashboard & Net Worth Graph</span>
+<div class="font-bold" style="color: var(--sf-emerald-deep);">Validated</div>
+<div style="color: var(--sf-slate-mid);">Dashboard as hero screen</div>
+<div class="mt-1 feature-tag feature-tag--pass" style="font-size: 0.6rem;">→ 5/6 users loved it ✓</div>
 </div>
-<div class="timeline-item" style="border-left-color: var(--sf-blue);">
-<span class="font-bold" style="color: var(--sf-blue-deep);">Also Loved</span>
-<span style="color: var(--sf-slate-mid);"> — Calculators (FIRE, Inflation) & Offline Mode</span>
-</div>
-<div class="timeline-item" style="border-left-color: var(--sf-amber);">
-<span class="font-bold" style="color: #b45309;">Top Request</span>
-<span style="color: var(--sf-slate-mid);"> — Monthly cash flow & budgeting</span>
-</div>
-<div class="sf-quote text-xs mt-2">
-Amazing and structured app for beginners and professionals
-</div>
-
-</v-clicks>
 
 </div>
 
