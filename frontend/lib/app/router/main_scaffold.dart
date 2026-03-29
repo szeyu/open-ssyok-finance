@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:ssyok_finance/app/theme/colors.dart';
 
 /// Main scaffold with animated bottom navigation and floating AI button.
 class MainScaffold extends StatelessWidget {
@@ -105,7 +106,7 @@ class _AnimatedBottomNav extends StatelessWidget {
 
     return Container(
       decoration: BoxDecoration(
-        color: colorScheme.surface,
+        color: colorScheme.surfaceContainerHighest.withValues(alpha: 0.3),
         border: Border(
           top: BorderSide(
             color: colorScheme.outlineVariant,
@@ -211,12 +212,12 @@ class _NavTab extends StatelessWidget {
                 overflow: TextOverflow.ellipsis,
               ),
             ),
-            // Animated indicator dot
+            // Animated indicator dot — wider for more presence
             AnimatedContainer(
               duration: const Duration(milliseconds: 250),
               curve: Curves.easeOutCubic,
               height: 3,
-              width: isSelected ? 20 : 0,
+              width: isSelected ? 24 : 0,
               margin: const EdgeInsets.only(top: 2),
               decoration: BoxDecoration(
                 color: colorScheme.primary,
@@ -244,18 +245,18 @@ class _AiButton extends StatelessWidget {
         width: 52,
         height: 52,
         decoration: BoxDecoration(
-          gradient: LinearGradient(
+          gradient: const LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
             colors: [
-              colorScheme.primary,
-              colorScheme.tertiary,
+              AppColors.primary,
+              AppColors.primaryLight,
             ],
           ),
           shape: BoxShape.circle,
           boxShadow: [
             BoxShadow(
-              color: colorScheme.primary.withValues(alpha: 0.35),
+              color: AppColors.primary.withValues(alpha: 0.35),
               blurRadius: 12,
               offset: const Offset(0, 4),
             ),

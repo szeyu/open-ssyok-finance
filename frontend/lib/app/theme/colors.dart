@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class AppColors {
   // Primary brand color — Deep Teal (trustworthy, financial sophistication)
   static const Color primary = Color(0xFF0F766E);
-  static const Color primaryLight = Color(0xFF5EEAD4);
+  static const Color primaryLight = Color(0xFF2DD4BF);
   static const Color primaryDark = Color(0xFF0D5E57);
 
   // Secondary — Warm Amber (warmth and energy)
@@ -24,7 +24,7 @@ class AppColors {
   static const Color error = Color(0xFFEF4444); // Red
 
   // Light theme
-  static const Color backgroundLight = Color(0xFFFAFAF9); // Warm Stone
+  static const Color backgroundLight = Color(0xFFF8F8F6); // Warm Ivory
   static const Color surfaceLight = Color(0xFFFFFFFF);
   static const Color textPrimaryLight = Color(0xFF1C1917); // Rich Charcoal
   static const Color textSecondaryLight = Color(0xFF57534E); // Warm Gray

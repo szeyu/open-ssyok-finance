@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:ssyok_finance/features/auth/presentation/providers/auth_provider.dart';
 
 class SignInScreen extends ConsumerStatefulWidget {
@@ -73,7 +74,7 @@ class _SignInScreenState extends ConsumerState<SignInScreen>
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                // Logo with fade + scale entrance
+                // Branded text logo with fade + scale entrance
                 AnimatedOpacity(
                   opacity: _logoVisible ? 1.0 : 0.0,
                   duration: const Duration(milliseconds: 400),
@@ -82,30 +83,32 @@ class _SignInScreenState extends ConsumerState<SignInScreen>
                     scale: _logoVisible ? 1.0 : 0.8,
                     duration: const Duration(milliseconds: 400),
                     curve: Curves.easeOutCubic,
-                    child: Icon(
-                      Icons.account_balance,
-                      size: 80,
-                      color: colorScheme.primary,
+                    child: Column(
+                      children: [
+                        Text(
+                          'ssyok',
+                          style: GoogleFonts.plusJakartaSans(
+                            fontSize: 48,
+                            fontWeight: FontWeight.w800,
+                            color: colorScheme.primary,
+                            height: 1.1,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                        Text(
+                          'Finance',
+                          style: GoogleFonts.plusJakartaSans(
+                            fontSize: 24,
+                            fontWeight: FontWeight.w400,
+                            color: colorScheme.primary.withValues(alpha: 0.7),
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
                     ),
                   ),
                 ),
-                const SizedBox(height: 24),
-
-                // App name
-                AnimatedOpacity(
-                  opacity: _logoVisible ? 1.0 : 0.0,
-                  duration: const Duration(milliseconds: 400),
-                  curve: Curves.easeOutCubic,
-                  child: Text(
-                    'ssyok Finance',
-                    style: theme.textTheme.displaySmall?.copyWith(
-                      color: colorScheme.primary,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-                const SizedBox(height: 8),
+                const SizedBox(height: 12),
 
                 // Tagline with delay
                 AnimatedOpacity(
@@ -122,31 +125,38 @@ class _SignInScreenState extends ConsumerState<SignInScreen>
                 ),
                 const SizedBox(height: 48),
 
-                // Features list
+                // Features list with subtle background container
                 AnimatedOpacity(
                   opacity: _taglineVisible ? 1.0 : 0.0,
                   duration: const Duration(milliseconds: 350),
                   curve: Curves.easeOutCubic,
-                  child: Column(
-                    children: [
-                      _buildFeatureItem(
-                        context,
-                        Icons.calculate,
-                        'Track your assets, debts, and goals',
-                      ),
-                      const SizedBox(height: 16),
-                      _buildFeatureItem(
-                        context,
-                        Icons.lightbulb_outline,
-                        'Get personalized AI insights powered by Gemini',
-                      ),
-                      const SizedBox(height: 16),
-                      _buildFeatureItem(
-                        context,
-                        Icons.trending_up,
-                        'Plan for your financial independence',
-                      ),
-                    ],
+                  child: Container(
+                    padding: const EdgeInsets.all(20),
+                    decoration: BoxDecoration(
+                      color: colorScheme.surfaceContainerHighest.withValues(alpha: 0.35),
+                      borderRadius: BorderRadius.circular(16),
+                    ),
+                    child: Column(
+                      children: [
+                        _buildFeatureItem(
+                          context,
+                          Icons.calculate,
+                          'Track your assets, debts, and goals',
+                        ),
+                        const SizedBox(height: 16),
+                        _buildFeatureItem(
+                          context,
+                          Icons.lightbulb_outline,
+                          'Get personalized AI insights powered by Gemini',
+                        ),
+                        const SizedBox(height: 16),
+                        _buildFeatureItem(
+                          context,
+                          Icons.trending_up,
+                          'Plan for your financial independence',
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 const SizedBox(height: 48),
@@ -179,7 +189,10 @@ class _SignInScreenState extends ConsumerState<SignInScreen>
                       label: Text(
                           _isLoading ? 'Signing in...' : 'Continue with Google'),
                       style: ElevatedButton.styleFrom(
-                        padding: const EdgeInsets.symmetric(vertical: 16),
+                        padding: const EdgeInsets.symmetric(vertical: 18),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(24),
+                        ),
                       ),
                     ),
                   ),

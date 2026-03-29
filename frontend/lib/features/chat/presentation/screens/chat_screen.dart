@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:ssyok_finance/features/chat/presentation/providers/chat_provider.dart';
 import 'package:ssyok_finance/features/chat/presentation/widgets/chat_bubble.dart';
 
@@ -202,7 +203,7 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
                   const SizedBox(width: 10),
                   Expanded(
                     child: Text(
-                      'This chat has reached 50 messages. Tap 🕐 above to start a new conversation.',
+                      'This chat has reached 50 messages. Tap above to start a new conversation.',
                       style: theme.textTheme.bodySmall?.copyWith(
                         color: theme.colorScheme.onTertiaryContainer,
                       ),
@@ -254,10 +255,14 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(
-              Icons.chat_bubble_outline,
-              size: 80,
-              color: theme.colorScheme.primary.withValues(alpha: 0.5),
+            // Branded text logo instead of generic icon
+            Text(
+              'ssyok',
+              style: GoogleFonts.plusJakartaSans(
+                fontSize: 40,
+                fontWeight: FontWeight.w800,
+                color: theme.colorScheme.primary.withValues(alpha: 0.5),
+              ),
             ),
             const SizedBox(height: 24),
             Text(
@@ -281,11 +286,11 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
 
   Widget _buildSuggestedPrompts(ThemeData theme) {
     final prompts = [
-      ('💰', 'Net Worth', 'net_worth'),
-      ('📊', 'Asset Allocation', 'assets'),
-      ('🎯', 'Goal Progress', 'goals'),
-      ('💳', 'Debt Payoff', 'debts'),
-      ('💸', 'Expense Tips', 'expenses'),
+      ('Net Worth', 'net_worth'),
+      ('Asset Allocation', 'assets'),
+      ('Goal Progress', 'goals'),
+      ('Debt Payoff', 'debts'),
+      ('Expense Tips', 'expenses'),
     ];
 
     return Wrap(
@@ -295,16 +300,9 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
       children: prompts.map((prompt) {
         return OutlinedButton(
           onPressed: () {
-            ref.read(chatProvider.notifier).sendPrompt(prompt.$3);
+            ref.read(chatProvider.notifier).sendPrompt(prompt.$2);
           },
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(prompt.$1, style: const TextStyle(fontSize: 16)),
-              const SizedBox(width: 8),
-              Text(prompt.$2),
-            ],
-          ),
+          child: Text(prompt.$1),
         );
       }).toList(),
     );
@@ -316,7 +314,7 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
         color: theme.colorScheme.surface,
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.1),
+            color: Colors.black.withValues(alpha: 0.06),
             offset: const Offset(0, -2),
             blurRadius: 4,
           ),
@@ -324,7 +322,7 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
       ),
       padding: EdgeInsets.only(
         left: 16,
-        right: 16,
+        right: 12,
         top: 12,
         bottom: 12 + MediaQuery.of(context).viewInsets.bottom,
       ),
@@ -350,11 +348,28 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
               onSubmitted: (_) => _sendMessage(),
             ),
           ),
-          const SizedBox(width: 12),
-          FloatingActionButton(
-            onPressed: isDisabled ? null : _sendMessage,
-            mini: true,
-            child: const Icon(Icons.send),
+          const SizedBox(width: 8),
+          // Pill-shaped send button
+          SizedBox(
+            height: 44,
+            width: 44,
+            child: Material(
+              color: isDisabled
+                  ? theme.colorScheme.onSurface.withValues(alpha: 0.12)
+                  : theme.colorScheme.primary,
+              borderRadius: BorderRadius.circular(22),
+              child: InkWell(
+                onTap: isDisabled ? null : _sendMessage,
+                borderRadius: BorderRadius.circular(22),
+                child: Icon(
+                  Icons.send,
+                  size: 20,
+                  color: isDisabled
+                      ? theme.colorScheme.onSurface.withValues(alpha: 0.38)
+                      : Colors.white,
+                ),
+              ),
+            ),
           ),
         ],
       ),

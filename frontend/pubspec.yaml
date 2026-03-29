@@ -52,6 +52,9 @@ dependencies:
   # Local storage
   shared_preferences: ^2.3.3
 
+  # Typography
+  google_fonts: ^6.2.1
+
   # Utilities
   cupertino_icons: ^1.0.8
   freezed_annotation: ^2.4.4

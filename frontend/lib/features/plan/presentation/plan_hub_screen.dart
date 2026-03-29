@@ -135,6 +135,8 @@ class PlanHubScreen extends ConsumerWidget {
                               icon: Icons.account_balance_wallet_outlined,
                               label: 'Assets',
                               subtitle: 'Savings, investments & property',
+                              iconColor: const Color(0xFF10B981),
+                              iconBgColor: const Color(0xFF10B981),
                               onTap: () => context.push('/plan/assets'),
                               isFirst: true,
                             ),
@@ -142,30 +144,40 @@ class PlanHubScreen extends ConsumerWidget {
                               icon: Icons.flag_outlined,
                               label: 'Goals',
                               subtitle: 'Financial milestones & targets',
+                              iconColor: const Color(0xFF3B82F6),
+                              iconBgColor: const Color(0xFF3B82F6),
                               onTap: () => context.push('/plan/goals'),
                             ),
                             _PlanListItem(
                               icon: Icons.credit_card_outlined,
                               label: 'Debts',
                               subtitle: 'Loans, mortgages & credit cards',
+                              iconColor: const Color(0xFFF97316),
+                              iconBgColor: const Color(0xFFF97316),
                               onTap: () => context.push('/plan/debts'),
                             ),
                             _PlanListItem(
                               icon: Icons.receipt_long_outlined,
                               label: 'Expenses',
                               subtitle: 'Monthly spending categories',
+                              iconColor: const Color(0xFF8B5CF6),
+                              iconBgColor: const Color(0xFF8B5CF6),
                               onTap: () => context.push('/plan/expenses'),
                             ),
                             _PlanListItem(
                               icon: Icons.shield_outlined,
                               label: 'Safety Net',
                               subtitle: 'Emergency fund & insurance',
+                              iconColor: const Color(0xFFF59E0B),
+                              iconBgColor: const Color(0xFFF59E0B),
                               onTap: () => context.push('/plan/safetynet'),
                             ),
                             _PlanListItem(
                               icon: Icons.calculate_outlined,
                               label: 'Calculator',
                               subtitle: 'Compound interest & FIRE',
+                              iconColor: AppColors.primary,
+                              iconBgColor: AppColors.primary,
                               onTap: () => context.go('/calculator'),
                               isLast: true,
                             ),
@@ -190,6 +202,8 @@ class _PlanListItem extends StatelessWidget {
     required this.icon,
     required this.label,
     required this.subtitle,
+    required this.iconColor,
+    required this.iconBgColor,
     required this.onTap,
     this.isFirst = false,
     this.isLast = false,
@@ -198,6 +212,8 @@ class _PlanListItem extends StatelessWidget {
   final IconData icon;
   final String label;
   final String subtitle;
+  final Color iconColor;
+  final Color iconBgColor;
   final VoidCallback onTap;
   final bool isFirst;
   final bool isLast;
@@ -219,13 +235,13 @@ class _PlanListItem extends StatelessWidget {
               child: Row(
                 children: [
                   Container(
-                    width: 44,
-                    height: 44,
+                    width: 48,
+                    height: 48,
                     decoration: BoxDecoration(
-                      color: AppColors.primary.withValues(alpha: 0.1),
-                      borderRadius: BorderRadius.circular(12),
+                      color: iconBgColor.withValues(alpha: 0.1),
+                      borderRadius: BorderRadius.circular(14),
                     ),
-                    child: Icon(icon, color: AppColors.primary, size: 22),
+                    child: Icon(icon, color: iconColor, size: 22),
                   ),
                   const SizedBox(width: 16),
                   Expanded(

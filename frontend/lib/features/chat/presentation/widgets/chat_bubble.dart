@@ -53,6 +53,15 @@ class ChatBubble extends StatelessWidget {
                       bottomLeft: Radius.circular(isUser ? 16 : 4),
                       bottomRight: Radius.circular(isUser ? 4 : 16),
                     ),
+                    // Subtle left-side teal accent for AI bubbles
+                    border: isUser
+                        ? null
+                        : Border(
+                            left: BorderSide(
+                              color: theme.colorScheme.primary.withValues(alpha: 0.3),
+                              width: 2.5,
+                            ),
+                          ),
                   ),
                   child: isUser
                       ? Text(

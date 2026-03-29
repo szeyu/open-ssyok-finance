@@ -1,106 +1,92 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-/// Typography styles using Roboto font family
+/// Typography styles using Plus Jakarta Sans (headlines) + DM Sans (body)
 class AppTextStyles {
-  // Display styles
-  static const TextStyle displayLarge = TextStyle(
-    fontFamily: 'Roboto',
+  // Display styles — Plus Jakarta Sans, w800
+  static TextStyle displayLarge = GoogleFonts.plusJakartaSans(
     fontSize: 57,
-    fontWeight: FontWeight.w400,
+    fontWeight: FontWeight.w800,
     letterSpacing: -0.25,
   );
 
-  static const TextStyle displayMedium = TextStyle(
-    fontFamily: 'Roboto',
+  static TextStyle displayMedium = GoogleFonts.plusJakartaSans(
     fontSize: 45,
-    fontWeight: FontWeight.w400,
+    fontWeight: FontWeight.w800,
   );
 
-  static const TextStyle displaySmall = TextStyle(
-    fontFamily: 'Roboto',
+  static TextStyle displaySmall = GoogleFonts.plusJakartaSans(
     fontSize: 36,
-    fontWeight: FontWeight.w400,
+    fontWeight: FontWeight.w800,
   );
 
-  // Headline styles
-  static const TextStyle headlineLarge = TextStyle(
-    fontFamily: 'Roboto',
+  // Headline styles — Plus Jakarta Sans, w700
+  static TextStyle headlineLarge = GoogleFonts.plusJakartaSans(
     fontSize: 32,
-    fontWeight: FontWeight.w400,
+    fontWeight: FontWeight.w700,
   );
 
-  static const TextStyle headlineMedium = TextStyle(
-    fontFamily: 'Roboto',
+  static TextStyle headlineMedium = GoogleFonts.plusJakartaSans(
     fontSize: 28,
-    fontWeight: FontWeight.w400,
+    fontWeight: FontWeight.w700,
   );
 
-  static const TextStyle headlineSmall = TextStyle(
-    fontFamily: 'Roboto',
+  static TextStyle headlineSmall = GoogleFonts.plusJakartaSans(
     fontSize: 24,
-    fontWeight: FontWeight.w400,
+    fontWeight: FontWeight.w700,
   );
 
-  // Title styles
-  static const TextStyle titleLarge = TextStyle(
-    fontFamily: 'Roboto',
+  // Title styles — Plus Jakarta Sans, w600
+  static TextStyle titleLarge = GoogleFonts.plusJakartaSans(
     fontSize: 22,
-    fontWeight: FontWeight.w500,
+    fontWeight: FontWeight.w600,
   );
 
-  static const TextStyle titleMedium = TextStyle(
-    fontFamily: 'Roboto',
+  static TextStyle titleMedium = GoogleFonts.plusJakartaSans(
     fontSize: 16,
-    fontWeight: FontWeight.w500,
+    fontWeight: FontWeight.w600,
     letterSpacing: 0.15,
   );
 
-  static const TextStyle titleSmall = TextStyle(
-    fontFamily: 'Roboto',
+  static TextStyle titleSmall = GoogleFonts.plusJakartaSans(
     fontSize: 14,
-    fontWeight: FontWeight.w500,
+    fontWeight: FontWeight.w600,
     letterSpacing: 0.1,
   );
 
-  // Body styles
-  static const TextStyle bodyLarge = TextStyle(
-    fontFamily: 'Roboto',
+  // Body styles — DM Sans
+  static TextStyle bodyLarge = GoogleFonts.dmSans(
     fontSize: 16,
     fontWeight: FontWeight.w400,
     letterSpacing: 0.5,
   );
 
-  static const TextStyle bodyMedium = TextStyle(
-    fontFamily: 'Roboto',
+  static TextStyle bodyMedium = GoogleFonts.dmSans(
     fontSize: 14,
     fontWeight: FontWeight.w400,
     letterSpacing: 0.25,
   );
 
-  static const TextStyle bodySmall = TextStyle(
-    fontFamily: 'Roboto',
+  static TextStyle bodySmall = GoogleFonts.dmSans(
     fontSize: 12,
     fontWeight: FontWeight.w400,
     letterSpacing: 0.4,
   );
 
-  // Label styles
-  static const TextStyle labelLarge = TextStyle(
-    fontFamily: 'Roboto',
+  // Label styles — DM Sans, w500
+  static TextStyle labelLarge = GoogleFonts.dmSans(
     fontSize: 14,
     fontWeight: FontWeight.w500,
     letterSpacing: 0.1,
   );
 
-  static const TextStyle labelMedium = TextStyle(
-    fontFamily: 'Roboto',
+  static TextStyle labelMedium = GoogleFonts.dmSans(
     fontSize: 12,
     fontWeight: FontWeight.w500,
     letterSpacing: 0.5,
   );
 
-  static const TextStyle labelSmall = TextStyle(
-    fontFamily: 'Roboto',
+  static TextStyle labelSmall = GoogleFonts.dmSans(
     fontSize: 11,
     fontWeight: FontWeight.w500,
     letterSpacing: 0.5,
