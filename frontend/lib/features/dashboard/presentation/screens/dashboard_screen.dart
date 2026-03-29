@@ -10,6 +10,7 @@ import 'package:ssyok_finance/features/plan/presentation/debts/debt_form_modal.d
 import 'package:ssyok_finance/features/plan/presentation/goals/goal_form_modal.dart';
 import 'package:ssyok_finance/features/plan/presentation/providers/plan_providers.dart';
 import 'package:ssyok_finance/shared/widgets/animated_list_item.dart';
+import 'package:ssyok_finance/features/dashboard/presentation/widgets/net_worth_projection_card.dart';
 import 'package:ssyok_finance/shared/widgets/pressable.dart';
 
 class DashboardScreen extends ConsumerWidget {
@@ -66,11 +67,16 @@ class DashboardScreen extends ConsumerWidget {
                 index: 0,
                 child: _buildNetWorthCard(context, theme, netWorth),
               ),
+              const SizedBox(height: 16),
+              AnimatedListItem(
+                index: 1,
+                child: const NetWorthProjectionCard(),
+              ),
               const SizedBox(height: 24),
 
               // Quick Actions
               AnimatedListItem(
-                index: 1,
+                index: 2,
                 child: Text(
                   'Quick Actions',
                   style: theme.textTheme.titleLarge,
@@ -78,7 +84,7 @@ class DashboardScreen extends ConsumerWidget {
               ),
               const SizedBox(height: 16),
               AnimatedListItem(
-                index: 2,
+                index: 3,
                 child: _buildQuickActionsGrid(context, theme),
               ),
 
@@ -86,7 +92,7 @@ class DashboardScreen extends ConsumerWidget {
 
               // Summary Cards
               AnimatedListItem(
-                index: 3,
+                index: 4,
                 child: Text(
                   'Summary',
                   style: theme.textTheme.titleLarge,
@@ -94,7 +100,7 @@ class DashboardScreen extends ConsumerWidget {
               ),
               const SizedBox(height: 16),
               AnimatedListItem(
-                index: 4,
+                index: 5,
                 child: _buildSummaryCards(context, theme, ref),
               ),
             ],
