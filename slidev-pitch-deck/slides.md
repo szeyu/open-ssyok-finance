@@ -419,30 +419,25 @@ flowchart TB
 
 ::right::
 
-<div class="mt-4 ml-6">
+<div class="mt-2 ml-6">
 
-| Technology | Role |
-|------------|------|
-| **Flutter** | Cross-platform UI |
-| **Firebase Auth** | Google Sign-In |
-| **Firestore** | Real-time data |
-| **Cloud Functions** | Serverless backend |
-| **Google ADK** | Agent orchestration |
-| **Gemini 2.5 Flash** | AI engine |
-
-<div class="hero-card p-3 mt-3 text-center">
-<div class="font-bold text-sm" style="color: var(--sf-slate);">Gemini-Native Product</div>
-<div class="text-xs mt-1" style="color: var(--sf-slate-mid);">Full Google AI ecosystem — zero third-party AI</div>
+<div class="grid grid-cols-2 gap-2 text-xs mb-3">
+<div class="competitor-card p-2 text-center"><div class="font-bold" style="color: var(--sf-blue);">Flutter</div><div style="color: var(--sf-slate-soft);">Cross-platform UI</div></div>
+<div class="competitor-card p-2 text-center"><div class="font-bold" style="color: var(--sf-amber);">Firebase Auth</div><div style="color: var(--sf-slate-soft);">Google Sign-In</div></div>
+<div class="competitor-card p-2 text-center"><div class="font-bold" style="color: var(--sf-amber);">Firestore</div><div style="color: var(--sf-slate-soft);">Real-time data</div></div>
+<div class="competitor-card p-2 text-center"><div class="font-bold" style="color: var(--sf-amber);">Cloud Functions</div><div style="color: var(--sf-slate-soft);">Serverless backend</div></div>
+<div class="competitor-card p-2 text-center"><div class="font-bold" style="color: var(--sf-purple);">Google ADK</div><div style="color: var(--sf-slate-soft);">Agent orchestration</div></div>
+<div class="hero-card p-2 text-center"><div class="font-bold gradient-text">Gemini 2.5 Flash</div><div style="color: var(--sf-slate-soft);">AI engine</div></div>
 </div>
 
-<div class="competitor-card p-3 mt-3">
+<div class="competitor-card p-3">
 <div class="text-xs font-mono mb-2" style="color: var(--sf-slate-soft); letter-spacing: 0.04em;">WHY THESE CHOICES?</div>
 <div class="space-y-1 text-xs" style="color: var(--sf-slate-mid);">
 <div><span style="color: var(--sf-emerald);">▸</span> <strong>Cloud Functions</strong> not App Engine — serverless scales to 0, zero idle cost</div>
-<div><span style="color: var(--sf-emerald);">▸</span> <strong>ADK</strong> not LangChain — Google-native, auditability for finance</div>
+<div><span style="color: var(--sf-emerald);">▸</span> <strong>ADK</strong> not LangChain — Google-native, auditable for finance</div>
 <div><span style="color: var(--sf-emerald);">▸</span> <strong>Flash</strong> not Pro — lower cost/token, still frontier-class for chat</div>
-<div><span style="color: var(--sf-emerald);">▸</span> <strong>Firestore</strong> not SQL — offline-first Flutter plugin, per-user security rules</div>
-<div><span style="color: var(--sf-emerald);">▸</span> <strong>asia-southeast1</strong> — Singapore, lowest latency to Malaysian users</div>
+<div><span style="color: var(--sf-emerald);">▸</span> <strong>Firestore</strong> not SQL — offline-first, per-user security rules</div>
+<div><span style="color: var(--sf-emerald);">▸</span> <strong>asia-southeast1</strong> — lowest latency to Malaysian users</div>
 </div>
 </div>
 
