@@ -541,8 +541,8 @@ flowchart TB
 
 <div class="timeline-item" style="border-left-color: var(--sf-amber);">
 <div class="font-bold" style="color: #b45309;">Requested</div>
-<div style="color: var(--sf-slate-mid);">Monthly cash flow & budgeting</div>
-<div class="mt-1 feature-tag feature-tag--pass" style="font-size: 0.6rem;">→ Added to Q3 roadmap</div>
+<div style="color: var(--sf-slate-mid);">Monthly cash flow</div>
+<div class="mt-1 feature-tag feature-tag--pass" style="font-size: 0.6rem;">→ Added</div>
 </div>
 
 <div class="timeline-item" style="border-left-color: var(--sf-amber);">
